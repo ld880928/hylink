@@ -7,22 +7,15 @@
 //
 
 #import "NewsViewController.h"
+#import "NewsCell.h"
 
-@interface NewsViewController ()
+@interface NewsViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *newsSearchBar;
+@property (weak, nonatomic) IBOutlet UITableView *infoTableView;
 
 @end
 
 @implementation NewsViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -36,12 +29,35 @@
 
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark tableview
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return 10;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60.0f;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    static NSString *newsCellID = @"NewsCell";
+    NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:newsCellID];
+    if (!cell) {
+        
+    }
+    
+    
+    cell.contentView.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = [UIColor clearColor];
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    return cell;
+    
+}
 /*
 #pragma mark - Navigation
 

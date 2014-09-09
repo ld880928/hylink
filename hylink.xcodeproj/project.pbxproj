@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02110A0C19BF3DB300DA33E2 /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02110A0B19BF3DB300DA33E2 /* NewsCell.m */; };
+		02110A0F19BF457E00DA33E2 /* CustomSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 02110A0E19BF457E00DA33E2 /* CustomSegmentedControl.m */; };
 		0231475B19BC91B500C95DC0 /* PersonalImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0231475A19BC91B500C95DC0 /* PersonalImageCell.m */; };
 		0231475E19BC91CB00C95DC0 /* PersonalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0231475D19BC91CB00C95DC0 /* PersonalCell.m */; };
 		02364BD919BD848200083F37 /* WorkingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02364BD819BD848200083F37 /* WorkingListViewController.m */; };
@@ -57,6 +59,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02110A0A19BF3DB300DA33E2 /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
+		02110A0B19BF3DB300DA33E2 /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
+		02110A0D19BF457E00DA33E2 /* CustomSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSegmentedControl.h; sourceTree = "<group>"; };
+		02110A0E19BF457E00DA33E2 /* CustomSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSegmentedControl.m; sourceTree = "<group>"; };
 		0231475919BC91B500C95DC0 /* PersonalImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalImageCell.h; sourceTree = "<group>"; };
 		0231475A19BC91B500C95DC0 /* PersonalImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalImageCell.m; sourceTree = "<group>"; };
 		0231475C19BC91CB00C95DC0 /* PersonalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCell.h; sourceTree = "<group>"; };
@@ -146,6 +152,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02110A0919BF3D9600DA33E2 /* NewsCells */ = {
+			isa = PBXGroup;
+			children = (
+				02110A0A19BF3DB300DA33E2 /* NewsCell.h */,
+				02110A0B19BF3DB300DA33E2 /* NewsCell.m */,
+			);
+			name = NewsCells;
+			sourceTree = "<group>";
+		};
 		0231475819BC917D00C95DC0 /* PersonalCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +274,7 @@
 				3B45D4B219BEA1EE00EFE2EA /* WorkingDetailCells */,
 				0292032B19BB374C0042C09C /* NewsViewController.h */,
 				0292032C19BB374C0042C09C /* NewsViewController.m */,
+				02110A0919BF3D9600DA33E2 /* NewsCells */,
 				0292032E19BB378D0042C09C /* PersonalViewController.h */,
 				0292032F19BB378D0042C09C /* PersonalViewController.m */,
 				0231475819BC917D00C95DC0 /* PersonalCells */,
@@ -280,6 +296,8 @@
 				3B45D4B919BEDC7800EFE2EA /* ChooseProcessView.h */,
 				3B45D4BA19BEDC7800EFE2EA /* ChooseProcessView.m */,
 				3B45D4BC19BEDCBA00EFE2EA /* ChooseProcessView.xib */,
+				02110A0D19BF457E00DA33E2 /* CustomSegmentedControl.h */,
+				02110A0E19BF457E00DA33E2 /* CustomSegmentedControl.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -413,6 +431,7 @@
 			files = (
 				0292034719BB78620042C09C /* ForgotPasswordViewController.m in Sources */,
 				0292030019BB337C0042C09C /* AppDelegate.m in Sources */,
+				02110A0C19BF3DB300DA33E2 /* NewsCell.m in Sources */,
 				0292033619BB45F80042C09C /* HomeTabBarController.m in Sources */,
 				02364BE019BDD71300083F37 /* WorkingListCell.m in Sources */,
 				029202FC19BB337C0042C09C /* main.m in Sources */,
@@ -424,6 +443,7 @@
 				0292033019BB378D0042C09C /* PersonalViewController.m in Sources */,
 				3B45D4B819BEA23900EFE2EA /* WorkingDetailHistoryCell.m in Sources */,
 				0292039619BB7BF50042C09C /* UIButton+Block.m in Sources */,
+				02110A0F19BF457E00DA33E2 /* CustomSegmentedControl.m in Sources */,
 				02364BDC19BD8C2500083F37 /* UIImage+UIColor.m in Sources */,
 				0231475B19BC91B500C95DC0 /* PersonalImageCell.m in Sources */,
 				3B45D4B519BEA21900EFE2EA /* WorkingDetailCell.m in Sources */,
@@ -517,6 +537,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "9876bbe5-09db-43d0-a7f6-480ee59e09f9";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -537,7 +558,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CHENG NAN (222UUNEN4P)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHENG NAN (222UUNEN4P)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -548,6 +570,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PROVISIONING_PROFILE = "9876bbe5-09db-43d0-a7f6-480ee59e09f9";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -562,6 +585,7 @@
 				GCC_PREFIX_HEADER = "hylink/hylink-Prefix.pch";
 				INFOPLIST_FILE = "hylink/hylink-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9876bbe5-09db-43d0-a7f6-480ee59e09f9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -571,10 +595,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CHENG NAN (222UUNEN4P)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CHENG NAN (222UUNEN4P)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hylink/hylink-Prefix.pch";
 				INFOPLIST_FILE = "hylink/hylink-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9876bbe5-09db-43d0-a7f6-480ee59e09f9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

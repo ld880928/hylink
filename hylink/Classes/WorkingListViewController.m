@@ -92,7 +92,6 @@
 }
 
 #pragma mark tableview
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"WoringListToWorkingDetailSegue" sender:self];
