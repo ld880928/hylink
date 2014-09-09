@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface WorkingListViewController : UIViewController
+
+@property(nonatomic,assign)WorkType workType;
 
 @end

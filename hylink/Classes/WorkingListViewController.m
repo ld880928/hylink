@@ -8,6 +8,7 @@
 
 #import "WorkingListViewController.h"
 #import "WorkingListCell.h"
+#import "WorkingDetailViewController.h"
 
 @interface WorkingListViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -77,6 +78,17 @@
     [self performBlock:^{
         [(HomeTabBarController *)self.tabBarController customTabBar].hidden = YES;
     } afterDelay:.5f];
+    
+    
+    //判断类型，加载数据
+    if (self.workType == WorkType_Working) {
+        self.title = @"待办事项";
+    }
+    else
+    {
+        self.title = @"已办事项";
+    }
+    
 }
 
 #pragma mark tableview
@@ -112,15 +124,14 @@
     return cell;
     
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    WorkingDetailViewController *controller = segue.destinationViewController;
+    controller.workType = self.workType;
 }
-*/
 
 @end

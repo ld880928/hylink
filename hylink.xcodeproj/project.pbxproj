@@ -40,6 +40,10 @@
 		0292038919BB7BF50042C09C /* NSObject+PerformBlockAfterDelay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292035F19BB7BF50042C09C /* NSObject+PerformBlockAfterDelay.m */; };
 		0292039619BB7BF50042C09C /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292037619BB7BF50042C09C /* UIButton+Block.m */; };
 		0292039E19BB7F990042C09C /* UIViewController+WhiteTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292039D19BB7F990042C09C /* UIViewController+WhiteTitle.m */; };
+		3B45D4B519BEA21900EFE2EA /* WorkingDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B45D4B419BEA21900EFE2EA /* WorkingDetailCell.m */; };
+		3B45D4B819BEA23900EFE2EA /* WorkingDetailHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B45D4B719BEA23900EFE2EA /* WorkingDetailHistoryCell.m */; };
+		3B45D4BB19BEDC7800EFE2EA /* ChooseProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B45D4BA19BEDC7800EFE2EA /* ChooseProcessView.m */; };
+		3B45D4BD19BEDCBA00EFE2EA /* ChooseProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B45D4BC19BEDCBA00EFE2EA /* ChooseProcessView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +113,13 @@
 		0292039B19BB7C520042C09C /* Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Additions.h; sourceTree = "<group>"; };
 		0292039C19BB7F990042C09C /* UIViewController+WhiteTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WhiteTitle.h"; sourceTree = "<group>"; };
 		0292039D19BB7F990042C09C /* UIViewController+WhiteTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WhiteTitle.m"; sourceTree = "<group>"; };
+		3B45D4B319BEA21900EFE2EA /* WorkingDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingDetailCell.h; sourceTree = "<group>"; };
+		3B45D4B419BEA21900EFE2EA /* WorkingDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingDetailCell.m; sourceTree = "<group>"; };
+		3B45D4B619BEA23900EFE2EA /* WorkingDetailHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingDetailHistoryCell.h; sourceTree = "<group>"; };
+		3B45D4B719BEA23900EFE2EA /* WorkingDetailHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingDetailHistoryCell.m; sourceTree = "<group>"; };
+		3B45D4B919BEDC7800EFE2EA /* ChooseProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseProcessView.h; sourceTree = "<group>"; };
+		3B45D4BA19BEDC7800EFE2EA /* ChooseProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseProcessView.m; sourceTree = "<group>"; };
+		3B45D4BC19BEDCBA00EFE2EA /* ChooseProcessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseProcessView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +256,7 @@
 				02364BDD19BDD44F00083F37 /* WorkingListCells */,
 				02364BE119BDDF4200083F37 /* WorkingDetailViewController.h */,
 				02364BE219BDDF4200083F37 /* WorkingDetailViewController.m */,
+				3B45D4B219BEA1EE00EFE2EA /* WorkingDetailCells */,
 				0292032B19BB374C0042C09C /* NewsViewController.h */,
 				0292032C19BB374C0042C09C /* NewsViewController.m */,
 				0292032E19BB378D0042C09C /* PersonalViewController.h */,
@@ -265,6 +277,9 @@
 				0292033F19BB52630042C09C /* CustomTabBarItem.h */,
 				0292034019BB52630042C09C /* CustomTabBarItem.m */,
 				0292033D19BB52540042C09C /* CustomTabBarItem.xib */,
+				3B45D4B919BEDC7800EFE2EA /* ChooseProcessView.h */,
+				3B45D4BA19BEDC7800EFE2EA /* ChooseProcessView.m */,
+				3B45D4BC19BEDCBA00EFE2EA /* ChooseProcessView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -283,6 +298,17 @@
 				0292039D19BB7F990042C09C /* UIViewController+WhiteTitle.m */,
 			);
 			path = Additions;
+			sourceTree = "<group>";
+		};
+		3B45D4B219BEA1EE00EFE2EA /* WorkingDetailCells */ = {
+			isa = PBXGroup;
+			children = (
+				3B45D4B319BEA21900EFE2EA /* WorkingDetailCell.h */,
+				3B45D4B419BEA21900EFE2EA /* WorkingDetailCell.m */,
+				3B45D4B619BEA23900EFE2EA /* WorkingDetailHistoryCell.h */,
+				3B45D4B719BEA23900EFE2EA /* WorkingDetailHistoryCell.m */,
+			);
+			name = WorkingDetailCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0292030B19BB337C0042C09C /* Images.xcassets in Resources */,
+				3B45D4BD19BEDCBA00EFE2EA /* ChooseProcessView.xib in Resources */,
 				029202FA19BB337C0042C09C /* InfoPlist.strings in Resources */,
 				0292030319BB337C0042C09C /* Main.storyboard in Resources */,
 				0292033E19BB52540042C09C /* CustomTabBarItem.xib in Resources */,
@@ -395,13 +422,16 @@
 				0292038919BB7BF50042C09C /* NSObject+PerformBlockAfterDelay.m in Sources */,
 				02364BD919BD848200083F37 /* WorkingListViewController.m in Sources */,
 				0292033019BB378D0042C09C /* PersonalViewController.m in Sources */,
+				3B45D4B819BEA23900EFE2EA /* WorkingDetailHistoryCell.m in Sources */,
 				0292039619BB7BF50042C09C /* UIButton+Block.m in Sources */,
 				02364BDC19BD8C2500083F37 /* UIImage+UIColor.m in Sources */,
 				0231475B19BC91B500C95DC0 /* PersonalImageCell.m in Sources */,
+				3B45D4B519BEA21900EFE2EA /* WorkingDetailCell.m in Sources */,
 				0292032D19BB374C0042C09C /* NewsViewController.m in Sources */,
 				0292033319BB37E50042C09C /* SettingViewController.m in Sources */,
 				0231475E19BC91CB00C95DC0 /* PersonalCell.m in Sources */,
 				0292034119BB52630042C09C /* CustomTabBarItem.m in Sources */,
+				3B45D4BB19BEDC7800EFE2EA /* ChooseProcessView.m in Sources */,
 				0292033A19BB49900042C09C /* CustomTabBarView.m in Sources */,
 				02364BE319BDDF4200083F37 /* WorkingDetailViewController.m in Sources */,
 			);

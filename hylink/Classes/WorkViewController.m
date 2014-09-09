@@ -7,6 +7,7 @@
 //
 
 #import "WorkViewController.h"
+#import "WorkingListViewController.h"
 
 @interface WorkViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *labelWorkingCount;
@@ -32,25 +33,22 @@
 //待办事项列表
 - (IBAction)gotoWorking:(id)sender
 {
-    [self performSegueWithIdentifier:@"WorkingToWorkingListSegue" sender:self];
+    [self performSegueWithIdentifier:@"WorkingToWorkingListSegue" sender:[NSNumber numberWithInt:WorkType_Working]];
 }
 
 //已办事项列表
 - (IBAction)gotoWorked:(id)sender
 {
-    
-    
+    [self performSegueWithIdentifier:@"WorkingToWorkingListSegue" sender:[NSNumber numberWithInt:WorkType_Worked]];
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    WorkingListViewController *controller = [segue destinationViewController];
+    controller.workType = [sender intValue];
 }
-*/
 
 @end

@@ -11,6 +11,14 @@
 
 #pragma mark Color
 #define OrangeColor [UIColor colorWithRed:255.0f / 255.0f green:125.0f / 255.0f blue:19.0f / 255.0f alpha:1.0f]
+#define GreenColor  [UIColor colorWithRed:87.0f / 255.0f green:169.0f / 255.0f blue:0 / 255.0f alpha:1.0f];
+
+#pragma mark enum
+typedef enum
+{
+    WorkType_Working=0,
+    WorkType_Worked
+}WorkType;
 
 
 #import "NSObject+PerformBlockAfterDelay.h"
@@ -20,4 +28,5 @@
 
 #import "CustomTabBarView.h"
 #import "HomeTabBarController.h"
+#import "ChooseProcessView.h"
 #endif

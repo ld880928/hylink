@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WorkingDetailViewController : UIViewController
-
+@property(nonatomic,assign)WorkType workType;
 @end
