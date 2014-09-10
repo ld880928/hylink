@@ -9,10 +9,12 @@
 #import "WorkingListViewController.h"
 #import "WorkingListCell.h"
 #import "WorkingDetailViewController.h"
+#import "CustomSegmentedControl.h"
 
 @interface WorkingListViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *infoTableView;
+@property (weak, nonatomic) IBOutlet UIView *segmentedControlContainer;
 
 @end
 
@@ -32,6 +34,13 @@
     [super viewDidLoad];
         
     // Do any additional setup after loading the view.
+    NSArray *tags = @[@"全部",@"财务",@"行政",@"人事"];
+    
+    CustomSegmentedControl *control = [CustomSegmentedControl customSegmentedControlWithControls:tags valueChangedCallBlock:^(NSInteger index) {
+        NSLog(@"%@",[tags objectAtIndex:index]);
+    }];
+    [self.segmentedControlContainer addSubview:control];
+    
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setImage:[UIImage imageNamed:@"btn_back"] forState:UIControlStateNormal];
     backBtn.frame = CGRectMake(0, 0, 20.0f, 20.0f);

@@ -394,6 +394,48 @@
                                     <action selector="gotoWorked:" destination="7nE-MB-ray" eventType="touchUpInside" id="5v5-5Z-VIS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIi-9b-kbP">
+                                <rect key="frame" x="8" y="125" width="72" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btn_work_reconciliation">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y55-C2-GKU">
+                                <rect key="frame" x="85" y="125" width="72" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btn_work_recharge">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9P-Aj-8NS">
+                                <rect key="frame" x="163" y="125" width="72" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btn_work_search_table">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fc-mt-Eo2">
+                                <rect key="frame" x="240" y="125" width="72" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btn_work_leave">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBL-gb-lrz">
+                                <rect key="frame" x="8" y="205" width="72" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btn_work_business_trip">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hXi-yH-rjh">
+                                <rect key="frame" x="85" y="205" width="72" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="btn_work_more">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -448,20 +490,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TWi-9Z-UXM">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pFE-WX-rFd">
-                                        <rect key="frame" x="20" y="9" width="280" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <segments>
-                                            <segment title="全部"/>
-                                            <segment title="财务"/>
-                                            <segment title="行政"/>
-                                            <segment title="人事"/>
-                                        </segments>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </segmentedControl>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.49019607840000001" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="gCW-lU-nLx"/>
                                     <constraint firstAttribute="width" constant="320" id="yfr-Rl-m73"/>
@@ -554,6 +582,7 @@
                     <navigationItem key="navigationItem" title="待办事项" id="4fF-nG-Exr"/>
                     <connections>
                         <outlet property="infoTableView" destination="Hof-12-RiG" id="01u-g8-J6L"/>
+                        <outlet property="segmentedControlContainer" destination="TWi-9Z-UXM" id="ctF-ym-ZrB"/>
                         <segue destination="WWI-4r-9Fb" kind="push" identifier="WoringListToWorkingDetailSegue" id="ZpE-fS-mga"/>
                     </connections>
                 </viewController>
@@ -764,16 +793,20 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="搜索..." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulB-4Q-u9k">
+                            <searchBar contentMode="redraw" placeholder="搜索..." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulB-4Q-u9k">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FOP-tq-JbO">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FOP-tq-JbO">
                                 <rect key="frame" x="0.0" y="44" width="320" height="411"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="323" id="Jny-s2-kk3"/>
+                                    <constraint firstAttribute="width" constant="320" id="eUL-5z-gPp"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="60" id="6IT-5m-egk" customClass="NewsCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="60"/>
@@ -782,24 +815,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_news_work" translatesAutoresizingMaskIntoConstraints="NO" id="j3M-qL-mEX">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_news_work" translatesAutoresizingMaskIntoConstraints="NO" id="j3M-qL-mEX">
                                                     <rect key="frame" x="10" y="10" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="待办事项" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rG8-C5-VJj">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="待办事项" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rG8-C5-VJj">
                                                     <rect key="frame" x="60" y="10" width="200" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.26274509800000001" green="0.54901960780000003" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="关于王小利资金调整反馈" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwT-z6-ElJ">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于王小利资金调整反馈" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwT-z6-ElJ">
                                                     <rect key="frame" x="60" y="30" width="200" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15:29" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsw-1h-WYh">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15:29" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsw-1h-WYh">
                                                     <rect key="frame" x="268" y="10" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -807,6 +840,21 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Rsw-1h-WYh" firstAttribute="leading" secondItem="IwT-z6-ElJ" secondAttribute="trailing" constant="8" symbolic="YES" id="05N-hA-b0R"/>
+                                                <constraint firstItem="Rsw-1h-WYh" firstAttribute="bottom" secondItem="rG8-C5-VJj" secondAttribute="bottom" id="5Dp-6Q-NA7"/>
+                                                <constraint firstItem="IwT-z6-ElJ" firstAttribute="leading" secondItem="rG8-C5-VJj" secondAttribute="leading" id="BGR-9Q-jA3"/>
+                                                <constraint firstAttribute="trailing" secondItem="IwT-z6-ElJ" secondAttribute="trailing" constant="60" id="GA9-Sz-Slf"/>
+                                                <constraint firstItem="j3M-qL-mEX" firstAttribute="top" secondItem="rG8-C5-VJj" secondAttribute="top" id="L4f-q6-mPH"/>
+                                                <constraint firstItem="rG8-C5-VJj" firstAttribute="leading" secondItem="j3M-qL-mEX" secondAttribute="trailing" constant="10" id="MGa-ey-igE"/>
+                                                <constraint firstItem="j3M-qL-mEX" firstAttribute="top" secondItem="pdP-en-JEY" secondAttribute="top" constant="10" id="Pdo-jW-EQ1"/>
+                                                <constraint firstItem="Rsw-1h-WYh" firstAttribute="top" secondItem="rG8-C5-VJj" secondAttribute="top" id="Ri7-t9-ypP"/>
+                                                <constraint firstAttribute="trailing" secondItem="Rsw-1h-WYh" secondAttribute="trailing" constant="10" id="jZg-i7-iMm"/>
+                                                <constraint firstItem="rG8-C5-VJj" firstAttribute="centerX" secondItem="pdP-en-JEY" secondAttribute="centerX" id="mUR-Gp-xU5"/>
+                                                <constraint firstAttribute="bottom" secondItem="IwT-z6-ElJ" secondAttribute="bottom" constant="8" id="pqB-9S-b3U"/>
+                                                <constraint firstItem="Rsw-1h-WYh" firstAttribute="leading" secondItem="rG8-C5-VJj" secondAttribute="trailing" constant="8" symbolic="YES" id="w3w-kb-nNK"/>
+                                                <constraint firstItem="IwT-z6-ElJ" firstAttribute="top" secondItem="pdP-en-JEY" secondAttribute="top" constant="30" id="zCG-hZ-vdf"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imageViewIcon" destination="j3M-qL-mEX" id="ALz-wa-04Q"/>
@@ -823,6 +871,15 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FOP-tq-JbO" firstAttribute="top" secondItem="ulB-4Q-u9k" secondAttribute="bottom" id="F5u-gX-Aja"/>
+                            <constraint firstItem="FOP-tq-JbO" firstAttribute="leading" secondItem="Ln2-Rj-tBx" secondAttribute="leading" id="ODi-7f-XZy"/>
+                            <constraint firstItem="ulB-4Q-u9k" firstAttribute="top" secondItem="Ln2-Rj-tBx" secondAttribute="top" id="e8T-4n-ub1"/>
+                            <constraint firstItem="Ms0-X8-5H2" firstAttribute="top" secondItem="FOP-tq-JbO" secondAttribute="bottom" id="iTg-vx-qRI"/>
+                            <constraint firstItem="ulB-4Q-u9k" firstAttribute="trailing" secondItem="FOP-tq-JbO" secondAttribute="trailing" id="k1l-er-6fH"/>
+                            <constraint firstAttribute="trailing" secondItem="FOP-tq-JbO" secondAttribute="trailing" id="pLP-Wz-Rm6"/>
+                            <constraint firstItem="ulB-4Q-u9k" firstAttribute="leading" secondItem="FOP-tq-JbO" secondAttribute="leading" id="wXo-v8-13W"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="消息中心" id="jO4-dS-wuK"/>
                     <connections>
@@ -836,6 +893,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btn_work_business_trip" width="72" height="72"/>
+        <image name="btn_work_leave" width="72" height="72"/>
+        <image name="btn_work_more" width="72" height="72"/>
+        <image name="btn_work_recharge" width="72" height="72"/>
+        <image name="btn_work_reconciliation" width="72" height="72"/>
+        <image name="btn_work_search_table" width="72" height="72"/>
         <image name="forgot_btn" width="290" height="53"/>
         <image name="forgot_input_bg" width="320" height="100"/>
         <image name="icon_news_work" width="40" height="40"/>

@@ -10,6 +10,13 @@
 
 @interface CustomSegmentedControl : UIView
 
-+ (instancetype)customSegmentedControlWithControls:(NSArray *)controls;
++ (instancetype)customSegmentedControlWithControls:(NSArray *)controls valueChangedCallBlock:(void (^)(NSInteger index))block_;
 
+
+@end
+
+@interface CustomSegmentedControlItem : UIView
+@property(nonatomic,assign)BOOL isSelected;
+
++ (instancetype)customSegmentedControlItemWithControl:(NSString *)control;
 @end
