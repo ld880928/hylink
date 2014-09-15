@@ -7,14 +7,16 @@
 //
 
 #import "WorkingListViewController.h"
-#import "WorkingListCell.h"
+#import "WorkingListCollectionCell.h"
 #import "WorkingDetailViewController.h"
 #import "CustomSegmentedControl.h"
 
-@interface WorkingListViewController ()<UITableViewDataSource,UITableViewDelegate>
+#import "CustomLayout.h"
 
-@property (weak, nonatomic) IBOutlet UITableView *infoTableView;
+@interface WorkingListViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UIView *segmentedControlContainer;
+@property (weak, nonatomic) IBOutlet UICollectionView *infoCollectionView;
 
 @end
 
@@ -32,7 +34,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        
+    
+    CustomLayout *customLayout = [[CustomLayout alloc] init];
+    customLayout.cellCount = 4;
+    self.infoCollectionView.collectionViewLayout = customLayout;
+    
     // Do any additional setup after loading the view.
     NSArray *tags = @[@"全部",@"财务",@"行政",@"人事"];
     
@@ -100,37 +106,32 @@
     
 }
 
-#pragma mark tableview
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    [self performSegueWithIdentifier:@"WoringListToWorkingDetailSegue" sender:self];
+    return 4;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 20;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 55.0f;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+    static NSString *cell_id = @"WorkingListCollectionCell";
     
-    static NSString *workingListCellID = @"WorkingListCell";
-    WorkingListCell *cell = [tableView dequeueReusableCellWithIdentifier:workingListCellID];
-    if (!cell) {
-        
-    }
-    cell.contentView.backgroundColor = [UIColor clearColor];
-    cell.backgroundColor = [UIColor clearColor];
+    WorkingListCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cell_id forIndexPath:indexPath];
     
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell.infoTableView addHeaderWithCallback:^{
+        [cell.infoTableView performSelector:@selector(headerEndRefreshing) withObject:self afterDelay:1.0f];
+    }];
+    
+    [cell.infoTableView headerBeginRefreshing];
+    
+    cell.contentView.backgroundColor = [UIColor redColor];
     
     return cell;
-    
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)ascrollView
+{
+    NSLog(@"scrollViewDidEndDecelerating");
 }
 
 #pragma mark - Navigation

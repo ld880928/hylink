@@ -55,6 +55,8 @@
 		3BB1A16719C6C9A500E0CFA8 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB1A15D19C6C9A500E0CFA8 /* UIScrollView+MJExtension.m */; };
 		3BB1A16819C6C9A500E0CFA8 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB1A15F19C6C9A500E0CFA8 /* UIScrollView+MJRefresh.m */; };
 		3BB1A16919C6C9A500E0CFA8 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB1A16119C6C9A500E0CFA8 /* UIView+MJExtension.m */; };
+		3BB1A16C19C6D8C700E0CFA8 /* WorkingListCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB1A16B19C6D8C700E0CFA8 /* WorkingListCollectionCell.m */; };
+		3BB1A16F19C6D9A500E0CFA8 /* CustomLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB1A16E19C6D9A500E0CFA8 /* CustomLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +154,10 @@
 		3BB1A15F19C6C9A500E0CFA8 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		3BB1A16019C6C9A500E0CFA8 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		3BB1A16119C6C9A500E0CFA8 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		3BB1A16A19C6D8C700E0CFA8 /* WorkingListCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingListCollectionCell.h; sourceTree = "<group>"; };
+		3BB1A16B19C6D8C700E0CFA8 /* WorkingListCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingListCollectionCell.m; sourceTree = "<group>"; };
+		3BB1A16D19C6D9A500E0CFA8 /* CustomLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLayout.h; sourceTree = "<group>"; };
+		3BB1A16E19C6D9A500E0CFA8 /* CustomLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLayout.m; sourceTree = "<group>"; };
 		D2CAACA5EB4A4EA49B4C657F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,8 +209,12 @@
 		02364BDD19BDD44F00083F37 /* WorkingListCells */ = {
 			isa = PBXGroup;
 			children = (
+				3BB1A16D19C6D9A500E0CFA8 /* CustomLayout.h */,
+				3BB1A16E19C6D9A500E0CFA8 /* CustomLayout.m */,
 				02364BDE19BDD71300083F37 /* WorkingListCell.h */,
 				02364BDF19BDD71300083F37 /* WorkingListCell.m */,
+				3BB1A16A19C6D8C700E0CFA8 /* WorkingListCollectionCell.h */,
+				3BB1A16B19C6D8C700E0CFA8 /* WorkingListCollectionCell.m */,
 			);
 			name = WorkingListCells;
 			sourceTree = "<group>";
@@ -525,6 +535,7 @@
 				3BB1A16819C6C9A500E0CFA8 /* UIScrollView+MJRefresh.m in Sources */,
 				0292033619BB45F80042C09C /* HomeTabBarController.m in Sources */,
 				02364BE019BDD71300083F37 /* WorkingListCell.m in Sources */,
+				3BB1A16F19C6D9A500E0CFA8 /* CustomLayout.m in Sources */,
 				3BB1A16419C6C9A500E0CFA8 /* MJRefreshConst.m in Sources */,
 				3BB1A16919C6C9A500E0CFA8 /* UIView+MJExtension.m in Sources */,
 				029202FC19BB337C0042C09C /* main.m in Sources */,
@@ -548,6 +559,7 @@
 				3BB1A16719C6C9A500E0CFA8 /* UIScrollView+MJExtension.m in Sources */,
 				0231475E19BC91CB00C95DC0 /* PersonalCell.m in Sources */,
 				0292034119BB52630042C09C /* CustomTabBarItem.m in Sources */,
+				3BB1A16C19C6D8C700E0CFA8 /* WorkingListCollectionCell.m in Sources */,
 				3B45D4BB19BEDC7800EFE2EA /* ChooseProcessView.m in Sources */,
 				0292033A19BB49900042C09C /* CustomTabBarView.m in Sources */,
 				02364BE319BDDF4200083F37 /* WorkingDetailViewController.m in Sources */,
