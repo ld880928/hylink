@@ -28,7 +28,6 @@
     [super viewDidLoad];
     [self setTitleWhite];
     // Do any additional setup after loading the view.
-
 }
 
 - (void)didReceiveMemoryWarning

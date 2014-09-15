@@ -31,6 +31,16 @@ typedef enum
     [super viewDidLoad];
     [self setTitleWhite];
     // Do any additional setup after loading the view.
+    
+    [self.infoTableView addHeaderWithCallback:^{
+        
+        [self.infoTableView performSelector:@selector(headerEndRefreshing) withObject:self afterDelay:3.0f];
+
+    }];
+    
+    [self.infoTableView headerBeginRefreshing];
+    
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
