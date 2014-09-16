@@ -20,6 +20,9 @@ typedef enum
     WorkType_Worked
 }WorkType;
 
+#import "hylinkURLs.h"
+#import "AFNetWorking.h"
+#import "SVProgressHUD.h"
 
 #import "NSObject+PerformBlockAfterDelay.h"
 #import "UIButton+Block.h"

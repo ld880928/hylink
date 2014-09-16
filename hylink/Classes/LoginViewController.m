@@ -38,12 +38,24 @@
 
 - (IBAction)login:(id)sender
 {
-    
     //验证登录信息
     
-    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+    [SVProgressHUD showWithStatus:@"正在登录..."];
+    
+    NSLog(@"%d  %d",Request_Status_OK,Request_Status_Fail);
+    
+    AFHTTPRequestOperationManager *requestManager = [AFHTTPRequestOperationManager manager];
+    
+    [requestManager POST:URL_SUB_LOGIN parameters:@{@"uid":@"infoship",@"passwd":@"1"} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        [self.navigationController dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
+
 }
 
 /*

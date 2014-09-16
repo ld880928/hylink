@@ -86,6 +86,7 @@
 		02364BDF19BDD71300083F37 /* WorkingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingListCell.m; sourceTree = "<group>"; };
 		02364BE119BDDF4200083F37 /* WorkingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingDetailViewController.h; sourceTree = "<group>"; };
 		02364BE219BDDF4200083F37 /* WorkingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingDetailViewController.m; sourceTree = "<group>"; };
+		02680FD919C878F1007EE2C5 /* hylinkURLs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hylinkURLs.h; sourceTree = "<group>"; };
 		029202EC19BB337C0042C09C /* hylink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hylink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029202EF19BB337C0042C09C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		029202F119BB337C0042C09C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -219,6 +220,14 @@
 			name = WorkingListCells;
 			sourceTree = "<group>";
 		};
+		02680FD819C878D4007EE2C5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				02680FD919C878F1007EE2C5 /* hylinkURLs.h */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		029202E319BB337C0042C09C = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +263,7 @@
 		029202F519BB337C0042C09C /* hylink */ = {
 			isa = PBXGroup;
 			children = (
+				02680FD819C878D4007EE2C5 /* Data */,
 				0292034819BB7BF50042C09C /* Additions */,
 				0292033719BB49600042C09C /* Views */,
 				0292032719BB368F0042C09C /* Classes */,
