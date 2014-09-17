@@ -17,6 +17,14 @@ typedef enum
 
 #define URL_BASE @"http://demo.infoship.cn/scms"
 
+/*!
+ *  登录接口
+ */
 #define URL_SUB_LOGIN [URL_BASE stringByAppendingString:@"/rest/m/login/doLogin"]
+
+/*!
+ *  找回密码接口
+ */
+#define URL_SUB_FORGET [URL_BASE stringByAppendingString:@"/rest/m/login/forget"]
 
 #endif

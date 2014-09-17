@@ -8,65 +8,91 @@
 
 #import "LoginViewController.h"
 
-@interface LoginViewController ()
+@interface LoginViewController ()<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *textFieldUserName;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldPassword;
 
 @end
 
 @implementation LoginViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setTitleWhite];
     // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.textFieldUserName.text = [AccountManager manager].uname;
+    
+    UIGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard:)];
+    [self.view addGestureRecognizer:tap];
 }
 
 - (IBAction)login:(id)sender
 {
     //验证登录信息
+    NSString *userName = self.textFieldUserName.text;
+    if (!userName || !userName.length) {
+        [UIAlertView showWithNotice:@"请输入用户名"];
+        return;
+    }
+    
+    NSString *password = self.textFieldPassword.text;
+    if (!password || !password.length) {
+        [UIAlertView showWithNotice:@"请输入密码"];
+        return;
+    }
     
     [SVProgressHUD showWithStatus:@"正在登录..."];
     
-    NSLog(@"%d  %d",Request_Status_OK,Request_Status_Fail);
-    
     AFHTTPRequestOperationManager *requestManager = [AFHTTPRequestOperationManager manager];
     
-    [requestManager POST:URL_SUB_LOGIN parameters:@{@"uid":@"infoship",@"passwd":@"1"} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [requestManager POST:URL_SUB_LOGIN parameters:@{@"uid":userName,@"passwd":password} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        if ([[responseObject objectForKey:@"status"] intValue] == Request_Status_OK) {
             
-        }];
+            [AccountManager manager].uname  =   userName;
+            [AccountManager manager].passwd =   password;
+            [AccountManager manager].uid    =  [responseObject objectForKey:@"uid"];
+            [AccountManager manager].orgid  =  [responseObject objectForKey:@"orgid"];
+            [AccountManager manager].token  =  [responseObject objectForKey:@"token"];
+            [AccountManager manager].isLoginSuccess  =  YES;
+            
+            [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+
+            [self.navigationController dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        }
+        else
+        {
+            [SVProgressHUD showErrorWithStatus:[responseObject objectForKey:@"message"]];
+        }
+
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
     }];
 
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if (textField == self.textFieldUserName) {
+        [self.textFieldPassword becomeFirstResponder];
+    }
+    else
+    {
+        [self.textFieldPassword resignFirstResponder];
+        [self login:nil];
+    }
+    
+    return YES;
 }
-*/
+
+- (void)hideKeyBoard:(UIGestureRecognizer *)ges
+{
+    [self.textFieldUserName resignFirstResponder];
+    [self.textFieldPassword resignFirstResponder];
+}
 
 @end

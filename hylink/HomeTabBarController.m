@@ -44,7 +44,11 @@
     
     [self performBlock:^{
         
-        [self performSegueWithIdentifier:@"HomeToLoginSegue" sender:self];
+        //检查是否登录
+        if(![[AccountManager manager] isLoginSuccess])
+        {
+            [self performSegueWithIdentifier:@"HomeToLoginSegue" sender:self];
+        }
         
     } afterDelay:.1f];
 

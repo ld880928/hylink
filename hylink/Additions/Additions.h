@@ -28,10 +28,14 @@ typedef enum
 #import "UIButton+Block.h"
 #import "UIViewController+WhiteTitle.h"
 #import "UIImage+UIColor.h"
+#import "UIAlertView+ShowNotice.h"
 
 #import "CustomTabBarView.h"
 #import "HomeTabBarController.h"
 #import "ChooseProcessView.h"
 
 #import "MJRefresh.h"
+
+
+#import "AccountManager.h"
 #endif

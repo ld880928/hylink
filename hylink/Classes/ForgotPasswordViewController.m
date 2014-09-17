@@ -9,19 +9,12 @@
 #import "ForgotPasswordViewController.h"
 
 @interface ForgotPasswordViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *textFiledUserName;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldEmail;
 
 @end
 
 @implementation ForgotPasswordViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -40,21 +33,41 @@
     
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)submit:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSString *userName = self.textFiledUserName.text;
+    if (!userName || !userName.length) {
+        [UIAlertView showWithNotice:@"请输入用户名"];
+        return;
+    }
+    
+    NSString *email = self.textFieldEmail.text;
+    if (!email || !email.length) {
+        [UIAlertView showWithNotice:@"请输入邮箱"];
+        return;
+    }
+    
+    [SVProgressHUD showWithStatus:@"正在处理"];
+    
+    AFHTTPRequestOperationManager *requestManager = [AFHTTPRequestOperationManager manager];
+    
+    [requestManager POST:URL_SUB_FORGET parameters:@{@"uid":userName,@"email":email} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if ([[responseObject objectForKey:@"status"] intValue] == Request_Status_OK) {
+            
+            [SVProgressHUD showSuccessWithStatus:@"密码已成功发送至您的邮箱"];
+    
+        }
+        else
+        {
+            [SVProgressHUD showErrorWithStatus:[responseObject objectForKey:@"message"]];
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+    }];
+    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

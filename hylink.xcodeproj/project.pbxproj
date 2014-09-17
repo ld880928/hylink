@@ -15,6 +15,8 @@
 		02364BDC19BD8C2500083F37 /* UIImage+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 02364BDB19BD8C2500083F37 /* UIImage+UIColor.m */; };
 		02364BE019BDD71300083F37 /* WorkingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02364BDF19BDD71300083F37 /* WorkingListCell.m */; };
 		02364BE319BDDF4200083F37 /* WorkingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02364BE219BDDF4200083F37 /* WorkingDetailViewController.m */; };
+		023FCC1B19C9C4220089127C /* UIAlertView+ShowNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 023FCC1A19C9C4220089127C /* UIAlertView+ShowNotice.m */; };
+		023FCC1E19C9C5E30089127C /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 023FCC1D19C9C5E30089127C /* AccountManager.m */; };
 		029202F019BB337C0042C09C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029202EF19BB337C0042C09C /* Foundation.framework */; };
 		029202F219BB337C0042C09C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029202F119BB337C0042C09C /* CoreGraphics.framework */; };
 		029202F419BB337C0042C09C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029202F319BB337C0042C09C /* UIKit.framework */; };
@@ -86,6 +88,10 @@
 		02364BDF19BDD71300083F37 /* WorkingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingListCell.m; sourceTree = "<group>"; };
 		02364BE119BDDF4200083F37 /* WorkingDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingDetailViewController.h; sourceTree = "<group>"; };
 		02364BE219BDDF4200083F37 /* WorkingDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingDetailViewController.m; sourceTree = "<group>"; };
+		023FCC1919C9C4220089127C /* UIAlertView+ShowNotice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+ShowNotice.h"; sourceTree = "<group>"; };
+		023FCC1A19C9C4220089127C /* UIAlertView+ShowNotice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+ShowNotice.m"; sourceTree = "<group>"; };
+		023FCC1C19C9C5E30089127C /* AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
+		023FCC1D19C9C5E30089127C /* AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
 		02680FD919C878F1007EE2C5 /* hylinkURLs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hylinkURLs.h; sourceTree = "<group>"; };
 		029202EC19BB337C0042C09C /* hylink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hylink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029202EF19BB337C0042C09C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -224,6 +230,8 @@
 			isa = PBXGroup;
 			children = (
 				02680FD919C878F1007EE2C5 /* hylinkURLs.h */,
+				023FCC1C19C9C5E30089127C /* AccountManager.h */,
+				023FCC1D19C9C5E30089127C /* AccountManager.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -365,6 +373,8 @@
 				0292037619BB7BF50042C09C /* UIButton+Block.m */,
 				0292039C19BB7F990042C09C /* UIViewController+WhiteTitle.h */,
 				0292039D19BB7F990042C09C /* UIViewController+WhiteTitle.m */,
+				023FCC1919C9C4220089127C /* UIAlertView+ShowNotice.h */,
+				023FCC1A19C9C4220089127C /* UIAlertView+ShowNotice.m */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -568,11 +578,13 @@
 				0292033319BB37E50042C09C /* SettingViewController.m in Sources */,
 				3BB1A16719C6C9A500E0CFA8 /* UIScrollView+MJExtension.m in Sources */,
 				0231475E19BC91CB00C95DC0 /* PersonalCell.m in Sources */,
+				023FCC1B19C9C4220089127C /* UIAlertView+ShowNotice.m in Sources */,
 				0292034119BB52630042C09C /* CustomTabBarItem.m in Sources */,
 				3BB1A16C19C6D8C700E0CFA8 /* WorkingListCollectionCell.m in Sources */,
 				3B45D4BB19BEDC7800EFE2EA /* ChooseProcessView.m in Sources */,
 				0292033A19BB49900042C09C /* CustomTabBarView.m in Sources */,
 				02364BE319BDDF4200083F37 /* WorkingDetailViewController.m in Sources */,
+				023FCC1E19C9C5E30089127C /* AccountManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
