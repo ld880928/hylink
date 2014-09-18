@@ -8,10 +8,10 @@
 
 #import "CustomSegmentedControl.h"
 @interface CustomSegmentedControl()
-@property(nonatomic,strong)NSMutableArray *items;
-@property(nonatomic,assign)NSInteger selectedIndex;
 
 @property(nonatomic,copy) void (^valueChangedCallBackBlcok)(NSInteger index);
+
+@property(nonatomic,strong)UIScrollView *contentView;
 @end
 
 @implementation CustomSegmentedControl
@@ -22,8 +22,8 @@
     control.valueChangedCallBackBlcok = block_;
     control.items = [NSMutableArray array];
     
-    UIScrollView *contentView = [[UIScrollView alloc] initWithFrame:control.frame];
-    contentView.showsHorizontalScrollIndicator = NO;
+    control.contentView = [[UIScrollView alloc] initWithFrame:control.frame];
+    control.contentView.showsHorizontalScrollIndicator = NO;
     
     for (int i=0; i<controls.count; i++) {
         
@@ -34,13 +34,13 @@
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:control action:@selector(itemClicked:)];
         [item addGestureRecognizer:tap];
         
-        [contentView addSubview:item];
+        [control.contentView addSubview:item];
         [control.items addObject:item];
     }
     
-    contentView.contentSize = CGSizeMake(controls.count * 80.0f, 46.0f);
+    control.contentView.contentSize = CGSizeMake(controls.count * 80.0f, 46.0f);
     
-    [control addSubview:contentView];
+    [control addSubview:control.contentView];
     
     control.selectedIndex = -1;  //只是不为正整数就行了
     
@@ -60,6 +60,26 @@
         CustomSegmentedControlItem *item = [self.items objectAtIndex:i];
         if (i==index_) {
             item.isSelected = YES;
+            
+            //保证item显示
+            
+            //先判断左边
+            CGFloat offSetX = self.contentView.contentOffset.x;
+            
+            CGFloat left = item.frame.origin.x;
+            
+            if (left < offSetX) {
+                [self.contentView setContentOffset:CGPointMake(left, 0) animated:YES];
+            }
+            
+            //再右边
+            CGFloat wX = offSetX + self.contentView.frame.size.width;
+            CGFloat right = item.frame.origin.x + item.frame.size.width;
+            
+            if (right > wX) {
+                [self.contentView setContentOffset:CGPointMake(offSetX + (right - wX), 0) animated:YES];
+            }
+            
         }
         else
         {

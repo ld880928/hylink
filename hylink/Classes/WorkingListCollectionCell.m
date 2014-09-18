@@ -7,6 +7,7 @@
 //
 
 #import "WorkingListCollectionCell.h"
+#import "WorkingListCell.h"
 
 @interface WorkingListCollectionCell()<UITableViewDataSource,UITableViewDelegate>
 
@@ -14,32 +15,34 @@
 
 @implementation WorkingListCollectionCell
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    if (self.dataSource) {
+        return [self.dataSource numberOfDatasInItem:self];
+    }
+    else return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cell_id = @"erwer";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cell_id];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell_id];
-    }
+    static NSString *cell_id = @"WorkingListCell";
+    WorkingListCell *cell = [tableView dequeueReusableCellWithIdentifier:cell_id];
     
-    cell.textLabel.text = @"111";
+    NSArray *datas = [self.dataSource getDatasForItem:self];
+    MWork *mWork = [datas objectAtIndex:indexPath.row];
+    
+    cell.labelTitle.text = mWork.f_work_processname;
+    cell.labelTime.text = mWork.f_work_createtime;
+    cell.labelName.text = mWork.f_work_initiator;
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

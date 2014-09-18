@@ -36,6 +36,7 @@ typedef enum
 
 #import "MJRefresh.h"
 
-
+#import "Models.h"
 #import "AccountManager.h"
+#import "DateManager.h"
 #endif

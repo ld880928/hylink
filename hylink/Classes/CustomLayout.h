@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CustomLayout : UICollectionViewLayout
-@property (assign,nonatomic)int cellCount;
+@property (assign,nonatomic)NSUInteger cellCount;
 @end

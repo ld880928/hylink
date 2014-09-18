@@ -34,44 +34,33 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
 
     //判断类型
-    if (self.workType == WorkType_Working) {
-        self.title = @"待办事项";
-        
-        UIButton *processBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [processBtn setImage:[UIImage imageNamed:@"btn_process"] forState:UIControlStateNormal];
-        processBtn.frame = CGRectMake(0, 0, 20.0f, 20.0f);
-        
-        [processBtn handleControlEvent:UIControlEventTouchUpInside withBlock:^{
-            if (self.chooseProcessView.isShow) {
-                [self.chooseProcessView hide];
-            }
-            else
-            {
-                processBtn.transform = CGAffineTransformMakeRotation(M_PI);
-                [self.chooseProcessView showInView:self.view];
-            }
-            
-        }];
-        
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:processBtn];
-        
-        self.chooseProcessView = [ChooseProcessView chooseProcessView];
-        
-        self.chooseProcessView.hideCallBackBlock = ^{
-            processBtn.transform = CGAffineTransformMakeRotation(0);
-        };
-        
-        self.chooseProcessView.chooseSuccessCallBackBlock = ^(ProcessType type){
-            
-        };
-
-        
-    }
-    else
-    {
-        self.title = @"已办事项";
-    }
+    UIButton *processBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [processBtn setImage:[UIImage imageNamed:@"btn_process"] forState:UIControlStateNormal];
+    processBtn.frame = CGRectMake(0, 0, 20.0f, 20.0f);
     
+    [processBtn handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        if (self.chooseProcessView.isShow) {
+            [self.chooseProcessView hide];
+        }
+        else
+        {
+            processBtn.transform = CGAffineTransformMakeRotation(M_PI);
+            [self.chooseProcessView showInView:self.view];
+        }
+        
+    }];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:processBtn];
+    
+    self.chooseProcessView = [ChooseProcessView chooseProcessView];
+    
+    self.chooseProcessView.hideCallBackBlock = ^{
+        processBtn.transform = CGAffineTransformMakeRotation(0);
+    };
+    
+    self.chooseProcessView.chooseSuccessCallBackBlock = ^(ProcessType type){
+        
+    };
     
 }
 

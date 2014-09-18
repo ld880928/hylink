@@ -33,13 +33,13 @@
 //待办事项列表
 - (IBAction)gotoWorking:(id)sender
 {
-    [self performSegueWithIdentifier:@"WorkingToWorkingListSegue" sender:[NSNumber numberWithInt:WorkType_Working]];
+    [self performSegueWithIdentifier:@"WorkingToWorkingListSegue" sender:nil];
 }
 
 //已办事项列表
 - (IBAction)gotoWorked:(id)sender
 {
-    [self performSegueWithIdentifier:@"WorkingToWorkingListSegue" sender:[NSNumber numberWithInt:WorkType_Worked]];
+    [self performSegueWithIdentifier:@"WorkingToWorkingListSegue" sender:nil];
 }
 
 #pragma mark - Navigation
@@ -47,8 +47,6 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    WorkingListViewController *controller = [segue destinationViewController];
-    controller.workType = [sender intValue];
 }
 
 @end

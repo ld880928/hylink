@@ -11,6 +11,4 @@
 
 @interface WorkingListViewController : UIViewController
 
-@property(nonatomic,assign)WorkType workType;
-
 @end

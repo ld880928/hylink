@@ -10,6 +10,11 @@
 
 @interface CustomSegmentedControl : UIView
 
+@property(nonatomic,strong)NSMutableArray *items;
+@property(nonatomic,assign)NSInteger selectedIndex;
+
+- (void)selectItemAtIndex:(NSInteger)index_;
+
 + (instancetype)customSegmentedControlWithControls:(NSArray *)controls valueChangedCallBlock:(void (^)(NSInteger index))block_;
 
 

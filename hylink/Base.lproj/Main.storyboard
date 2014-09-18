@@ -615,6 +615,47 @@
                                                         <constraint firstAttribute="height" priority="250" constant="454" id="gEu-dJ-Ng0"/>
                                                         <constraint firstAttribute="width" constant="320" id="jFJ-B0-gw7"/>
                                                     </constraints>
+                                                    <prototypes>
+                                                        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="WorkingListCell" rowHeight="60" id="Xkn-Ox-rS0" customClass="WorkingListCell">
+                                                            <rect key="frame" x="0.0" y="22" width="320" height="60"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xkn-Ox-rS0" id="4sl-c2-X0B">
+                                                                <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ulf-0N-ya4">
+                                                                        <rect key="frame" x="15" y="10" width="40" height="40"/>
+                                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                                    </imageView>
+                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeQ-u4-P4e">
+                                                                        <rect key="frame" x="68" y="10" width="165" height="21"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2J-QD-su3">
+                                                                        <rect key="frame" x="68" y="29" width="165" height="21"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vI2-pB-H4x">
+                                                                        <rect key="frame" x="240" y="19" width="50" height="21"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </tableViewCellContentView>
+                                                            <connections>
+                                                                <outlet property="imageViewType" destination="Ulf-0N-ya4" id="e7k-Bu-5mc"/>
+                                                                <outlet property="labelName" destination="vI2-pB-H4x" id="8v4-YE-Rt0"/>
+                                                                <outlet property="labelTime" destination="A2J-QD-su3" id="hvH-cV-DbF"/>
+                                                                <outlet property="labelTitle" destination="oeQ-u4-P4e" id="fKZ-sv-r8g"/>
+                                                            </connections>
+                                                        </tableViewCell>
+                                                    </prototypes>
                                                     <connections>
                                                         <outlet property="dataSource" destination="ubL-Qv-YPs" id="XHX-To-bGc"/>
                                                         <outlet property="delegate" destination="ubL-Qv-YPs" id="1ZF-TL-H5Z"/>

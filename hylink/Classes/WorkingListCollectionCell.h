@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol WorkingListCollectionCellDataSource <NSObject>
+
+@required
+- (NSInteger)numberOfDatasInItem:(UICollectionViewCell *)cell_;
+- (NSArray *)getDatasForItem:(UICollectionViewCell *)cell_;
+
+@end
+
 @interface WorkingListCollectionCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UITableView *infoTableView;
-
+@property (nonatomic,weak)id<WorkingListCollectionCellDataSource> dataSource;
 @end

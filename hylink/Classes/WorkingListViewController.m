@@ -13,39 +13,39 @@
 
 #import "CustomLayout.h"
 
-@interface WorkingListViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate>
+@interface WorkingListViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate,WorkingListCollectionCellDataSource>
 
 @property (weak, nonatomic) IBOutlet UIView *segmentedControlContainer;
 @property (weak, nonatomic) IBOutlet UICollectionView *infoCollectionView;
 
+@property (strong,nonatomic)NSMutableDictionary *workingDatasDictionary;
+
+@property (nonatomic,strong)CustomSegmentedControl *control;
+
+@property (strong,nonatomic)NSArray *navigationsArray;
 @end
 
 @implementation WorkingListViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    CustomLayout *customLayout = [[CustomLayout alloc] init];
-    customLayout.cellCount = 4;
-    self.infoCollectionView.collectionViewLayout = customLayout;
+    self.workingDatasDictionary = [NSMutableDictionary dictionary];
     
     // Do any additional setup after loading the view.
-    NSArray *tags = @[@"全部",@"财务",@"行政",@"人事"];
+    self.navigationsArray = @[@"全部",@"财务",@"行政",@"人事"];
     
-    CustomSegmentedControl *control = [CustomSegmentedControl customSegmentedControlWithControls:tags valueChangedCallBlock:^(NSInteger index) {
-        NSLog(@"%@",[tags objectAtIndex:index]);
+    CustomLayout *customLayout = [[CustomLayout alloc] init];
+    customLayout.cellCount = self.navigationsArray.count;
+    self.infoCollectionView.collectionViewLayout = customLayout;
+    self.control = [CustomSegmentedControl customSegmentedControlWithControls:self.navigationsArray valueChangedCallBlock:^(NSInteger index) {
+
+        [self.infoCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+        
+        [self performSelector:@selector(refreshDataAtIndexPath:) withObject:[NSIndexPath indexPathForItem:index inSection:0] afterDelay:.1f];
+        
     }];
-    [self.segmentedControlContainer addSubview:control];
+    [self.segmentedControlContainer addSubview:self.control];
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setImage:[UIImage imageNamed:@"btn_back"] forState:UIControlStateNormal];
@@ -93,22 +93,12 @@
     [self performBlock:^{
         [(HomeTabBarController *)self.tabBarController customTabBar].hidden = YES;
     } afterDelay:.5f];
-    
-    
-    //判断类型，加载数据
-    if (self.workType == WorkType_Working) {
-        self.title = @"待办事项";
-    }
-    else
-    {
-        self.title = @"已办事项";
-    }
-    
+
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 4;
+    return self.navigationsArray.count;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -117,21 +107,93 @@
     static NSString *cell_id = @"WorkingListCollectionCell";
     
     WorkingListCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cell_id forIndexPath:indexPath];
+    cell.tag = indexPath.item;
+    
+    cell.dataSource = self;
+    [cell.infoTableView reloadData];
     
     [cell.infoTableView addHeaderWithCallback:^{
-        [cell.infoTableView performSelector:@selector(headerEndRefreshing) withObject:self afterDelay:1.0f];
+        //此处刷新数据
+        
+        AFHTTPRequestOperationManager *requestManager = [AFHTTPRequestOperationManager manager];
+        
+        //参数
+        NSDictionary *para = @{@"token":[AccountManager manager].token,
+                               @"uid":[AccountManager manager].uid,
+                               @"orgid":[AccountManager manager].orgid,
+                               @"pagesize":@20,
+                               @"page":@0,
+                               @"type":[self.navigationsArray objectAtIndex:indexPath.item]};
+        
+        [requestManager POST:URL_SUB_WORKING_LIST parameters:para success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            if ([[responseObject objectForKey:@"status"] intValue] == Request_Status_Fail) {
+                
+            }
+            else
+            {
+                NSArray *resDatas = [responseObject objectForKey:@"rows"];
+                
+                NSMutableArray *workModels = [NSMutableArray array];
+                for (int i=0; i<resDatas.count; i++) {
+                    MWork *mWork = [[MWork alloc] initWithDictionary:[resDatas objectAtIndex:i]];
+                    [workModels addObject:mWork];
+                }
+                [self.workingDatasDictionary setObject:workModels forKey:indexPath];
+                
+                [cell.infoTableView reloadData];
+                
+            }
+            
+            [cell.infoTableView headerEndRefreshing];
+
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [SVProgressHUD showErrorWithStatus:@"网络异常"];
+            
+            [cell.infoTableView headerEndRefreshing];
+
+        }];
+
+        
     }];
     
-    [cell.infoTableView headerBeginRefreshing];
-    
+
     cell.contentView.backgroundColor = [UIColor redColor];
     
     return cell;
 }
 
+#pragma mark WorkingListCollectionCellDataSource
+
+- (void)refreshDataAtIndexPath:(NSIndexPath *)indexPath
+{
+    WorkingListCollectionCell *cell = (WorkingListCollectionCell *)[self.infoCollectionView cellForItemAtIndexPath:indexPath];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [cell.infoTableView headerBeginRefreshing];
+    });
+}
+
+- (NSInteger)numberOfDatasInItem:(WorkingListCollectionCell *)cell_
+{
+    return [[self getDatasForItem:cell_] count];
+}
+
+- (NSArray *)getDatasForItem:(WorkingListCollectionCell *)cell_
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:cell_.tag inSection:0];
+    
+    return [self.workingDatasDictionary objectForKey:indexPath];
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)ascrollView
 {
-    NSLog(@"scrollViewDidEndDecelerating");
+    //算出滑动到哪一页，刷新当页的数据
+    int page = floor(self.infoCollectionView.contentOffset.x / self.infoCollectionView.frame.size.width);
+    
+    [self.control selectItemAtIndex:page];
+    
 }
 
 #pragma mark - Navigation
@@ -140,7 +202,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     WorkingDetailViewController *controller = segue.destinationViewController;
-    controller.workType = self.workType;
+    controller.mWork = sender;
 }
 
 @end
