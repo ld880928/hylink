@@ -17,6 +17,10 @@
 		02364BE319BDDF4200083F37 /* WorkingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02364BE219BDDF4200083F37 /* WorkingDetailViewController.m */; };
 		023FCC1B19C9C4220089127C /* UIAlertView+ShowNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 023FCC1A19C9C4220089127C /* UIAlertView+ShowNotice.m */; };
 		023FCC1E19C9C5E30089127C /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 023FCC1D19C9C5E30089127C /* AccountManager.m */; };
+		0278BA2319CBBF9300600134 /* MWorkDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 0278BA2219CBBF9300600134 /* MWorkDetail.m */; };
+		0278BA2619CBC15500600134 /* MWorkDetailAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0278BA2519CBC15500600134 /* MWorkDetailAction.m */; };
+		0278BA2919CBC16C00600134 /* MWorkDetailComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0278BA2819CBC16C00600134 /* MWorkDetailComment.m */; };
+		0278BA2C19CBC18000600134 /* MWorkDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0278BA2B19CBC18000600134 /* MWorkDetailItem.m */; };
 		029202F019BB337C0042C09C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029202EF19BB337C0042C09C /* Foundation.framework */; };
 		029202F219BB337C0042C09C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029202F119BB337C0042C09C /* CoreGraphics.framework */; };
 		029202F419BB337C0042C09C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029202F319BB337C0042C09C /* UIKit.framework */; };
@@ -95,6 +99,14 @@
 		023FCC1C19C9C5E30089127C /* AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
 		023FCC1D19C9C5E30089127C /* AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
 		02680FD919C878F1007EE2C5 /* hylinkURLs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hylinkURLs.h; sourceTree = "<group>"; };
+		0278BA2119CBBF9300600134 /* MWorkDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWorkDetail.h; sourceTree = "<group>"; };
+		0278BA2219CBBF9300600134 /* MWorkDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWorkDetail.m; sourceTree = "<group>"; };
+		0278BA2419CBC15500600134 /* MWorkDetailAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWorkDetailAction.h; sourceTree = "<group>"; };
+		0278BA2519CBC15500600134 /* MWorkDetailAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWorkDetailAction.m; sourceTree = "<group>"; };
+		0278BA2719CBC16C00600134 /* MWorkDetailComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWorkDetailComment.h; sourceTree = "<group>"; };
+		0278BA2819CBC16C00600134 /* MWorkDetailComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWorkDetailComment.m; sourceTree = "<group>"; };
+		0278BA2A19CBC18000600134 /* MWorkDetailItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWorkDetailItem.h; sourceTree = "<group>"; };
+		0278BA2B19CBC18000600134 /* MWorkDetailItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWorkDetailItem.m; sourceTree = "<group>"; };
 		029202EC19BB337C0042C09C /* hylink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hylink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029202EF19BB337C0042C09C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		029202F119BB337C0042C09C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -244,6 +256,14 @@
 				3BF7F26D19CABA34002D0CCC /* DateManager.m */,
 				3BF7F26819CAB773002D0CCC /* MWork.h */,
 				3BF7F26919CAB773002D0CCC /* MWork.m */,
+				0278BA2119CBBF9300600134 /* MWorkDetail.h */,
+				0278BA2219CBBF9300600134 /* MWorkDetail.m */,
+				0278BA2419CBC15500600134 /* MWorkDetailAction.h */,
+				0278BA2519CBC15500600134 /* MWorkDetailAction.m */,
+				0278BA2719CBC16C00600134 /* MWorkDetailComment.h */,
+				0278BA2819CBC16C00600134 /* MWorkDetailComment.m */,
+				0278BA2A19CBC18000600134 /* MWorkDetailItem.h */,
+				0278BA2B19CBC18000600134 /* MWorkDetailItem.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -566,6 +586,7 @@
 				02110A0C19BF3DB300DA33E2 /* NewsCell.m in Sources */,
 				3BB1A16819C6C9A500E0CFA8 /* UIScrollView+MJRefresh.m in Sources */,
 				0292033619BB45F80042C09C /* HomeTabBarController.m in Sources */,
+				0278BA2319CBBF9300600134 /* MWorkDetail.m in Sources */,
 				02364BE019BDD71300083F37 /* WorkingListCell.m in Sources */,
 				3BB1A16F19C6D9A500E0CFA8 /* CustomLayout.m in Sources */,
 				3BB1A16419C6C9A500E0CFA8 /* MJRefreshConst.m in Sources */,
@@ -578,16 +599,19 @@
 				3BB1A16619C6C9A500E0CFA8 /* MJRefreshHeaderView.m in Sources */,
 				0292038919BB7BF50042C09C /* NSObject+PerformBlockAfterDelay.m in Sources */,
 				02364BD919BD848200083F37 /* WorkingListViewController.m in Sources */,
+				0278BA2919CBC16C00600134 /* MWorkDetailComment.m in Sources */,
 				0292033019BB378D0042C09C /* PersonalViewController.m in Sources */,
 				3B45D4B819BEA23900EFE2EA /* WorkingDetailHistoryCell.m in Sources */,
 				0292039619BB7BF50042C09C /* UIButton+Block.m in Sources */,
 				02110A0F19BF457E00DA33E2 /* CustomSegmentedControl.m in Sources */,
 				02364BDC19BD8C2500083F37 /* UIImage+UIColor.m in Sources */,
+				0278BA2619CBC15500600134 /* MWorkDetailAction.m in Sources */,
 				0231475B19BC91B500C95DC0 /* PersonalImageCell.m in Sources */,
 				3B45D4B519BEA21900EFE2EA /* WorkingDetailCell.m in Sources */,
 				3BF7F26A19CAB773002D0CCC /* MWork.m in Sources */,
 				3BB1A16519C6C9A500E0CFA8 /* MJRefreshFooterView.m in Sources */,
 				0292032D19BB374C0042C09C /* NewsViewController.m in Sources */,
+				0278BA2C19CBC18000600134 /* MWorkDetailItem.m in Sources */,
 				0292033319BB37E50042C09C /* SettingViewController.m in Sources */,
 				3BB1A16719C6C9A500E0CFA8 /* UIScrollView+MJExtension.m in Sources */,
 				0231475E19BC91CB00C95DC0 /* PersonalCell.m in Sources */,

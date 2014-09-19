@@ -40,7 +40,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSArray *datas = [self.dataSource getDatasForItem:self];
     
+    if (self.gotoWorkingDetailBlock) {
+        self.gotoWorkingDetailBlock([datas objectAtIndex:indexPath.row]);
+    }
 }
 
 

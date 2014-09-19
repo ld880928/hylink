@@ -65,7 +65,6 @@
     
     [searchBtn handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         //显示搜索框
-        
         UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 44.0f)];
         
         searchBar.placeholder = @"搜索...";
@@ -109,21 +108,29 @@
     WorkingListCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cell_id forIndexPath:indexPath];
     cell.tag = indexPath.item;
     
+    cell.gotoWorkingDetailBlock = ^(MWork *mWork){
+        [self performSegueWithIdentifier:@"WoringListToWorkingDetailSegue" sender:mWork];
+    };
+    
     cell.dataSource = self;
     [cell.infoTableView reloadData];
     
     [cell.infoTableView addHeaderWithCallback:^{
+        
         //此处刷新数据
-        
         AFHTTPRequestOperationManager *requestManager = [AFHTTPRequestOperationManager manager];
-        
         //参数
+        NSString *type = [self.navigationsArray objectAtIndex:indexPath.item];
+        if ([type isEqualToString:@"全部"]) {
+            type = @"";
+        }
+        
         NSDictionary *para = @{@"token":[AccountManager manager].token,
                                @"uid":[AccountManager manager].uid,
                                @"orgid":[AccountManager manager].orgid,
                                @"pagesize":@20,
                                @"page":@0,
-                               @"type":[self.navigationsArray objectAtIndex:indexPath.item]};
+                               @"type":type};
         
         [requestManager POST:URL_SUB_WORKING_LIST parameters:para success:^(AFHTTPRequestOperation *operation, id responseObject) {
             

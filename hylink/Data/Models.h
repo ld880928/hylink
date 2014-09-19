@@ -10,5 +10,9 @@
 #define hylink_Models_h
 
 #import "MWork.h"
+#import "MWorkDetail.h"
+#import "MWorkDetailAction.h"
+#import "MWorkDetailComment.h"
+#import "MWorkDetailItem.h"
 
 #endif

@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *infoTableView;
 
 @property (nonatomic,strong)ChooseProcessView *chooseProcessView;
+
+@property (nonatomic,strong)MWorkDetail *mWorkDetail;
 @end
 
 @implementation WorkingDetailViewController
@@ -33,6 +35,50 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
 
+    [self.infoTableView addHeaderWithCallback:^{
+        
+        //此处刷新数据
+        AFHTTPRequestOperationManager *requestManager = [AFHTTPRequestOperationManager manager];
+        //参数
+        NSDictionary *para = @{@"token":[AccountManager manager].token,
+                               @"uid":[AccountManager manager].uid,
+                               @"orgid":[AccountManager manager].orgid,
+                               @"taskid":self.mWork.f_work_taskid};
+        
+        [requestManager POST:URL_SUB_WORKING_DETAIL parameters:para success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            if ([[responseObject objectForKey:@"status"] intValue] == Request_Status_OK) {
+                
+                self.mWorkDetail = [[MWorkDetail alloc] initWithDictionary:responseObject];
+                
+                [self.infoTableView reloadData];
+                [self refreshProgressViewWithActions:self.mWorkDetail.f_work_detail_actions];
+                
+            }
+            else
+            {
+                [SVProgressHUD showErrorWithStatus:[responseObject objectForKey:@"message"]];
+            }
+            
+            [self.infoTableView headerEndRefreshing];
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [SVProgressHUD showErrorWithStatus:@"网络异常"];
+            
+            [self.infoTableView headerEndRefreshing];
+            
+        }];
+        
+        
+    }];
+    
+    [self.infoTableView headerBeginRefreshing];
+}
+
+- (void)refreshProgressViewWithActions:(NSArray *)actions
+{
+    
     //判断类型
     UIButton *processBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [processBtn setImage:[UIImage imageNamed:@"btn_process"] forState:UIControlStateNormal];
@@ -71,7 +117,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    if (section == 1) {
+        return self.mWorkDetail.f_work_detail_comments.count;
+    }
+    else return self.mWorkDetail.f_work_detail_items.count;
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -126,12 +176,10 @@
             
         }
         
-        cell.labelValue.text = @"一个准一个准";
+        MWorkDetailItem *item = [self.mWorkDetail.f_work_detail_items objectAtIndex:indexPath.row];
         
-        if (indexPath.row == 4) {
-            cell.labelValue.textAlignment = NSTextAlignmentLeft;
-            cell.labelValue.text = @"一个准一个准一个准一个准一个准一个准一个准一个准一个准一个准一个准一个准一个准一个准";
-        }
+        cell.labelKey.text = item.f_work_detail_item_label;
+        cell.labelValue.text = [NSString stringWithFormat:@"%@",item.f_work_detail_item_value];
         
         cell.contentView.backgroundColor = [UIColor clearColor];
         cell.backgroundColor = [UIColor clearColor];
@@ -148,14 +196,14 @@
             
         }
         
-        cell.labelComment.text = @"一个准一个准一个准";
+        //cell.labelComment.text = @"一个准一个准一个准";
 
         if (indexPath.row == 0) {
             cell.lineTop.hidden = YES;
         }
         else cell.lineTop.hidden = NO;
         
-        if (indexPath.row == 4) {
+        if (indexPath.row == self.mWorkDetail.f_work_detail_comments.count - 1) {
             cell.lineBottom.hidden = YES;
         }
         else cell.lineBottom.hidden = NO;
