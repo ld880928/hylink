@@ -8,21 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum
-{
-    ProcessType_Agree=0,
-    ProcessType_Reject,
-    ProcessType_Ask_Sponsor,
-    ProcessType_Ask_Other
-}ProcessType;
-
 @interface ChooseProcessView : UIView
 
 @property(nonatomic,copy)void(^hideCallBackBlock)();
-@property(nonatomic,copy)void(^chooseSuccessCallBackBlock)(ProcessType type);
 @property(nonatomic,assign)BOOL isShow;
+@property(nonatomic,strong)NSMutableArray *items;
 
 + (instancetype)chooseProcessView;
+
+- (void)addItemWithType:(NSString *)type showLabel:(NSString *)showLabel callBackBlock:(void(^)(id sender))callBackBlock;
 
 - (void)showInView:(UIView *)view_;
 

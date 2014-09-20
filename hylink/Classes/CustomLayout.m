@@ -34,8 +34,8 @@
 {
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     attributes.frame = CGRectMake(SIZE.width * indexPath.item,0,SIZE.width , SIZE.height);
-    return attributes;
     
+    return attributes;
 }
 
 - (CGSize)collectionViewContentSize

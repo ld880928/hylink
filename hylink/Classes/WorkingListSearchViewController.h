@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WorkingListSearchViewController : UIViewController
-
+@property(nonatomic,copy) void (^gotoWorkingDetailBlock)(MWork *mWork);
 @end

@@ -29,6 +29,7 @@ typedef enum
 #import "UIViewController+WhiteTitle.h"
 #import "UIImage+UIColor.h"
 #import "UIAlertView+ShowNotice.h"
+#import "UIImageView+WebCache.h"
 
 #import "CustomTabBarView.h"
 #import "HomeTabBarController.h"

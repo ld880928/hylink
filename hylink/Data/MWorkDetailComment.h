@@ -10,6 +10,12 @@
 
 @interface MWorkDetailComment : NSObject
 
+@property(nonatomic,strong)NSString *f_work_detail_comment_memo;
+@property(nonatomic,strong)NSString *f_work_detail_comment_time;
+@property(nonatomic,strong)NSString *f_work_detail_comment_people;
+@property(nonatomic,strong)NSString *f_work_detail_comment_taskid;
+@property(nonatomic,strong)NSString *f_work_detail_comment_taskname;
+
 
 - (instancetype)initWithDictionary:(id)data_;
 

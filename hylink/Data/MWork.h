@@ -13,6 +13,7 @@
 @property(nonatomic,strong)NSString *f_work_createtime;
 @property(nonatomic,strong)NSString *f_work_initiator;
 @property(nonatomic,strong)NSString *f_work_processname;
+@property(nonatomic,strong)NSString *f_work_icon;
 
 - (instancetype)initWithDictionary:(id)data_;
 

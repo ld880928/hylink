@@ -16,8 +16,8 @@
 
 @end
 
-@interface WorkingListCollectionCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UITableView *infoTableView;
+@interface WorkingListCollectionCell : UICollectionViewCell<UITableViewDataSource,UITableViewDelegate>
+@property (strong, nonatomic)UITableView *infoTableView;
 @property (nonatomic,weak)id<WorkingListCollectionCellDataSource> dataSource;
 
 @property(nonatomic,copy) void (^gotoWorkingDetailBlock)(MWork *mWork);

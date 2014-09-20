@@ -9,7 +9,7 @@
 #import "WorkingListCollectionCell.h"
 #import "WorkingListCell.h"
 
-@interface WorkingListCollectionCell()<UITableViewDataSource,UITableViewDelegate>
+@interface WorkingListCollectionCell()
 
 @end
 
@@ -23,6 +23,11 @@
     else return 0;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 55.0f;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cell_id = @"WorkingListCell";
@@ -34,6 +39,7 @@
     cell.labelTitle.text = mWork.f_work_processname;
     cell.labelTime.text = mWork.f_work_createtime;
     cell.labelName.text = mWork.f_work_initiator;
+    [cell.imageViewType sd_setImageWithURL:[NSURL URLWithString:mWork.f_work_icon]];
     
     return cell;
 }
@@ -45,6 +51,8 @@
     if (self.gotoWorkingDetailBlock) {
         self.gotoWorkingDetailBlock([datas objectAtIndex:indexPath.row]);
     }
+    
+    [self.infoTableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 

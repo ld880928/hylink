@@ -78,11 +78,16 @@
 
 - (void)refreshProgressViewWithActions:(NSArray *)actions
 {
-    
     //判断类型
     UIButton *processBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [processBtn setImage:[UIImage imageNamed:@"btn_process"] forState:UIControlStateNormal];
     processBtn.frame = CGRectMake(0, 0, 20.0f, 20.0f);
+    
+    self.chooseProcessView = [ChooseProcessView chooseProcessView];
+    
+    self.chooseProcessView.hideCallBackBlock = ^{
+        processBtn.transform = CGAffineTransformMakeRotation(0);
+    };
     
     [processBtn handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         if (self.chooseProcessView.isShow) {
@@ -96,17 +101,48 @@
         
     }];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:processBtn];
     
-    self.chooseProcessView = [ChooseProcessView chooseProcessView];
-    
-    self.chooseProcessView.hideCallBackBlock = ^{
-        processBtn.transform = CGAffineTransformMakeRotation(0);
-    };
-    
-    self.chooseProcessView.chooseSuccessCallBackBlock = ^(ProcessType type){
+    for (int i=0; i<actions.count; i++) {
         
-    };
+        MWorkDetailAction *action = [actions objectAtIndex:i];
+        if (!action.f_work_detail_action_disable) {
+            
+            [self.chooseProcessView addItemWithType:action.f_work_detail_action_id showLabel:action.f_work_detail_action_label callBackBlock:^(id sender) {
+                
+                if([sender isEqualToString:@"agree"])
+                {
+                    NSLog(@"%@",sender);
+                    return;
+                }
+                
+                if([sender isEqualToString:@"disagree"])
+                {
+                    NSLog(@"%@",sender);
+                    return;
+                }
+                
+                if([sender isEqualToString:@"askInitiator"])
+                {
+                    NSLog(@"%@",sender);
+                    return;
+                }
+                
+                if([sender isEqualToString:@"askOther"])
+                {
+                    NSLog(@"%@",sender);
+                    return;
+                }
+                
+            }];
+            
+        }
+        
+        
+    }
+    
+    if (self.chooseProcessView.items.count) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:processBtn];
+    }
     
 }
 
@@ -196,8 +232,12 @@
             
         }
         
-        //cell.labelComment.text = @"一个准一个准一个准";
-
+        MWorkDetailComment *comment = [self.mWorkDetail.f_work_detail_comments objectAtIndex:indexPath.row];
+        
+        cell.labelComment.text = comment.f_work_detail_comment_memo;
+        cell.labelName.text =  comment.f_work_detail_comment_people;
+        cell.labelTime.text = comment.f_work_detail_comment_time;
+        
         if (indexPath.row == 0) {
             cell.lineTop.hidden = YES;
         }

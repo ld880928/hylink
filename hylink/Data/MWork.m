@@ -13,12 +13,10 @@
 {
     if (self = [super init]) {
         self.f_work_taskid = [data_ objectForKey:@"taskid"];
-        
-        long time = [[data_ objectForKey:@"createtime"] longValue];
-        self.f_work_createtime = [[DateManager sharedManager] stringForTimeInterval:time withFormat:FORMAT_STRING_DATE_TIME_M];
-        
+        self.f_work_createtime = [NSString stringWithFormat:@"%@",[data_ objectForKey:@"createtime"]];
         self.f_work_initiator = [data_ objectForKey:@"initiator"];
         self.f_work_processname = [data_ objectForKey:@"processname"];
+        self.f_work_icon = [data_ objectForKey:@"typeicon"];
     }
     
     return self;

@@ -10,6 +10,7 @@
 #import "WorkingListCollectionCell.h"
 #import "WorkingDetailViewController.h"
 #import "CustomSegmentedControl.h"
+#import "WorkingListSearchViewController.h"
 
 #import "CustomLayout.h"
 
@@ -19,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *infoCollectionView;
 
 @property (strong,nonatomic)NSMutableDictionary *workingDatasDictionary;
+
+@property (strong,nonatomic)NSMutableDictionary *workingDataPagesDictionary;
 
 @property (nonatomic,strong)CustomSegmentedControl *control;
 
@@ -31,6 +34,7 @@
 {
     [super viewDidLoad];
     self.workingDatasDictionary = [NSMutableDictionary dictionary];
+    self.workingDataPagesDictionary = [NSMutableDictionary dictionary];
     
     // Do any additional setup after loading the view.
     self.navigationsArray = @[@"全部",@"财务",@"行政",@"人事"];
@@ -64,6 +68,8 @@
     searchBtn.frame = CGRectMake(0, 0, 20.0f, 20.0f);
     
     [searchBtn handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        [self performSegueWithIdentifier:@"WorkingListToSearchSegue" sender:self];
+        /*
         //显示搜索框
         UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 44.0f)];
         
@@ -84,6 +90,7 @@
         }];
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:cancleBtn];
+         */
 
     }];
     
@@ -108,6 +115,17 @@
     WorkingListCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cell_id forIndexPath:indexPath];
     cell.tag = indexPath.item;
     
+    if (!cell.infoTableView) {
+        CGRect frame_cell = [self.infoCollectionView.collectionViewLayout layoutAttributesForItemAtIndexPath:indexPath].frame;
+        CGRect frame = CGRectMake(0, 0,frame_cell.size.width, frame_cell.size.height);
+        cell.infoTableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+        [cell.infoTableView registerNib:[UINib nibWithNibName:@"WorkingListCell" bundle:nil] forCellReuseIdentifier:@"WorkingListCell"];
+        cell.infoTableView.dataSource = cell;
+        cell.infoTableView.delegate = cell;
+        cell.infoTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [cell.contentView addSubview:cell.infoTableView];
+    }
+    
     cell.gotoWorkingDetailBlock = ^(MWork *mWork){
         [self performSegueWithIdentifier:@"WoringListToWorkingDetailSegue" sender:mWork];
     };
@@ -129,13 +147,13 @@
                                @"uid":[AccountManager manager].uid,
                                @"orgid":[AccountManager manager].orgid,
                                @"pagesize":@20,
-                               @"page":@0,
+                               @"page":@1,
                                @"type":type};
         
         [requestManager POST:URL_SUB_WORKING_LIST parameters:para success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             if ([[responseObject objectForKey:@"status"] intValue] == Request_Status_Fail) {
-                
+                [SVProgressHUD showErrorWithStatus:[responseObject objectForKey:@"message"]];
             }
             else
             {
@@ -146,7 +164,9 @@
                     MWork *mWork = [[MWork alloc] initWithDictionary:[resDatas objectAtIndex:i]];
                     [workModels addObject:mWork];
                 }
+                
                 [self.workingDatasDictionary setObject:workModels forKey:indexPath];
+                [self.workingDataPagesDictionary setObject:@1 forKey:indexPath];
                 
                 [cell.infoTableView reloadData];
                 
@@ -165,8 +185,72 @@
         
     }];
     
-
-    cell.contentView.backgroundColor = [UIColor redColor];
+    [cell.infoTableView addFooterWithCallback:^{
+        
+        //此处加载更多
+        AFHTTPRequestOperationManager *requestManager = [AFHTTPRequestOperationManager manager];
+        //参数
+        NSString *type = [self.navigationsArray objectAtIndex:indexPath.item];
+        if ([type isEqualToString:@"全部"]) {
+            type = @"";
+        }
+        
+        NSNumber *page = [self.workingDataPagesDictionary objectForKey:indexPath];
+        if (!page) {
+            page = @1;
+        }
+        else
+        {
+            page = [NSNumber numberWithInt:[page intValue] + 1];
+        }
+                
+        NSDictionary *para = @{@"token":[AccountManager manager].token,
+                               @"uid":[AccountManager manager].uid,
+                               @"orgid":[AccountManager manager].orgid,
+                               @"pagesize":@20,
+                               @"page":page,
+                               @"type":type};
+        
+        [requestManager POST:URL_SUB_WORKING_LIST parameters:para success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            if ([[responseObject objectForKey:@"status"] intValue] == Request_Status_Fail) {
+                
+                [SVProgressHUD showErrorWithStatus:[responseObject objectForKey:@"message"]];
+            }
+            else
+            {
+                NSArray *resDatas = [responseObject objectForKey:@"rows"];
+                
+                if (!resDatas || !resDatas.count) {
+                    [SVProgressHUD showSuccessWithStatus:@"无更多数据"];
+                    [cell.infoTableView footerEndRefreshing];
+                    return;
+                }
+                
+                NSMutableArray *workModels = [self.workingDatasDictionary objectForKey:indexPath];
+                for (int i=0; i<resDatas.count; i++) {
+                    MWork *mWork = [[MWork alloc] initWithDictionary:[resDatas objectAtIndex:i]];
+                    [workModels addObject:mWork];
+                }
+                
+                [self.workingDatasDictionary setObject:workModels forKey:indexPath];
+                [self.workingDataPagesDictionary setObject:page forKey:indexPath];
+                
+                [cell.infoTableView reloadData];
+                
+            }
+            
+            [cell.infoTableView footerEndRefreshing];
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [SVProgressHUD showErrorWithStatus:@"网络异常"];
+            
+            [cell.infoTableView footerEndRefreshing];
+            
+        }];
+        
+    }];
     
     return cell;
 }
@@ -208,8 +292,17 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    WorkingDetailViewController *controller = segue.destinationViewController;
-    controller.mWork = sender;
+    if ([segue.identifier isEqualToString:@"WoringListToWorkingDetailSegue"]) {
+        WorkingDetailViewController *controller = segue.destinationViewController;
+        controller.mWork = sender;
+    }
+    if ([segue.identifier isEqualToString:@"WorkingListToSearchSegue"]) {
+        WorkingListSearchViewController *controller = segue.destinationViewController;
+        controller.gotoWorkingDetailBlock = ^(MWork *mWork){
+            [self performSegueWithIdentifier:@"WoringListToWorkingDetailSegue" sender:mWork];
+        };
+    }
+
 }
 
 @end

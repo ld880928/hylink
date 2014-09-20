@@ -10,4 +10,16 @@
 
 @implementation MWorkDetailComment
 
+- (instancetype)initWithDictionary:(id)data_
+{
+    if (self = [super init]) {
+        self.f_work_detail_comment_memo = [data_ objectForKey:@"dealMemo"];
+        self.f_work_detail_comment_time = [data_ objectForKey:@"dealedAt"];
+        self.f_work_detail_comment_people = [data_ objectForKey:@"dealedPeople"];
+        self.f_work_detail_comment_taskid = [data_ objectForKey:@"taskId"];
+        self.f_work_detail_comment_taskname = [data_ objectForKey:@"taskName"];
+    }
+    
+    return self;
+}
 @end

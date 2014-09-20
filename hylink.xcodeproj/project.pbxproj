@@ -11,6 +11,8 @@
 		02110A0F19BF457E00DA33E2 /* CustomSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 02110A0E19BF457E00DA33E2 /* CustomSegmentedControl.m */; };
 		0231475B19BC91B500C95DC0 /* PersonalImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0231475A19BC91B500C95DC0 /* PersonalImageCell.m */; };
 		0231475E19BC91CB00C95DC0 /* PersonalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0231475D19BC91CB00C95DC0 /* PersonalCell.m */; };
+		0232A72119CD672D0083ECBC /* WorkingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0232A72019CD672D0083ECBC /* WorkingListCell.xib */; };
+		0232A72419CDB1BB0083ECBC /* WorkingListSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0232A72319CDB1BB0083ECBC /* WorkingListSearchViewController.m */; };
 		02364BD919BD848200083F37 /* WorkingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02364BD819BD848200083F37 /* WorkingListViewController.m */; };
 		02364BDC19BD8C2500083F37 /* UIImage+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 02364BDB19BD8C2500083F37 /* UIImage+UIColor.m */; };
 		02364BE019BDD71300083F37 /* WorkingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02364BDF19BDD71300083F37 /* WorkingListCell.m */; };
@@ -52,7 +54,6 @@
 		3B45D4B519BEA21900EFE2EA /* WorkingDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B45D4B419BEA21900EFE2EA /* WorkingDetailCell.m */; };
 		3B45D4B819BEA23900EFE2EA /* WorkingDetailHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B45D4B719BEA23900EFE2EA /* WorkingDetailHistoryCell.m */; };
 		3B45D4BB19BEDC7800EFE2EA /* ChooseProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B45D4BA19BEDC7800EFE2EA /* ChooseProcessView.m */; };
-		3B45D4BD19BEDCBA00EFE2EA /* ChooseProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B45D4BC19BEDCBA00EFE2EA /* ChooseProcessView.xib */; };
 		3BB1A16219C6C9A500E0CFA8 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3BB1A15219C6C9A500E0CFA8 /* MJRefresh.bundle */; };
 		3BB1A16319C6C9A500E0CFA8 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB1A15519C6C9A500E0CFA8 /* MJRefreshBaseView.m */; };
 		3BB1A16419C6C9A500E0CFA8 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB1A15719C6C9A500E0CFA8 /* MJRefreshConst.m */; };
@@ -86,6 +87,9 @@
 		0231475A19BC91B500C95DC0 /* PersonalImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalImageCell.m; sourceTree = "<group>"; };
 		0231475C19BC91CB00C95DC0 /* PersonalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCell.h; sourceTree = "<group>"; };
 		0231475D19BC91CB00C95DC0 /* PersonalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCell.m; sourceTree = "<group>"; };
+		0232A72019CD672D0083ECBC /* WorkingListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkingListCell.xib; sourceTree = "<group>"; };
+		0232A72219CDB1BB0083ECBC /* WorkingListSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingListSearchViewController.h; sourceTree = "<group>"; };
+		0232A72319CDB1BB0083ECBC /* WorkingListSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingListSearchViewController.m; sourceTree = "<group>"; };
 		02364BD719BD848200083F37 /* WorkingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingListViewController.h; sourceTree = "<group>"; };
 		02364BD819BD848200083F37 /* WorkingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingListViewController.m; sourceTree = "<group>"; };
 		02364BDA19BD8C2500083F37 /* UIImage+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UIColor.h"; sourceTree = "<group>"; };
@@ -158,7 +162,6 @@
 		3B45D4B719BEA23900EFE2EA /* WorkingDetailHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingDetailHistoryCell.m; sourceTree = "<group>"; };
 		3B45D4B919BEDC7800EFE2EA /* ChooseProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseProcessView.h; sourceTree = "<group>"; };
 		3B45D4BA19BEDC7800EFE2EA /* ChooseProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseProcessView.m; sourceTree = "<group>"; };
-		3B45D4BC19BEDCBA00EFE2EA /* ChooseProcessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseProcessView.xib; sourceTree = "<group>"; };
 		3BB1A15219C6C9A500E0CFA8 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		3BB1A15319C6C9A500E0CFA8 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
 		3BB1A15419C6C9A500E0CFA8 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
@@ -239,6 +242,7 @@
 				3BB1A16E19C6D9A500E0CFA8 /* CustomLayout.m */,
 				02364BDE19BDD71300083F37 /* WorkingListCell.h */,
 				02364BDF19BDD71300083F37 /* WorkingListCell.m */,
+				0232A72019CD672D0083ECBC /* WorkingListCell.xib */,
 				3BB1A16A19C6D8C700E0CFA8 /* WorkingListCollectionCell.h */,
 				3BB1A16B19C6D8C700E0CFA8 /* WorkingListCollectionCell.m */,
 			);
@@ -358,6 +362,8 @@
 				0292032919BB36AF0042C09C /* WorkViewController.m */,
 				02364BD719BD848200083F37 /* WorkingListViewController.h */,
 				02364BD819BD848200083F37 /* WorkingListViewController.m */,
+				0232A72219CDB1BB0083ECBC /* WorkingListSearchViewController.h */,
+				0232A72319CDB1BB0083ECBC /* WorkingListSearchViewController.m */,
 				02364BDD19BDD44F00083F37 /* WorkingListCells */,
 				02364BE119BDDF4200083F37 /* WorkingDetailViewController.h */,
 				02364BE219BDDF4200083F37 /* WorkingDetailViewController.m */,
@@ -385,7 +391,6 @@
 				0292033D19BB52540042C09C /* CustomTabBarItem.xib */,
 				3B45D4B919BEDC7800EFE2EA /* ChooseProcessView.h */,
 				3B45D4BA19BEDC7800EFE2EA /* ChooseProcessView.m */,
-				3B45D4BC19BEDCBA00EFE2EA /* ChooseProcessView.xib */,
 				02110A0D19BF457E00DA33E2 /* CustomSegmentedControl.h */,
 				02110A0E19BF457E00DA33E2 /* CustomSegmentedControl.m */,
 			);
@@ -524,12 +529,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0292030B19BB337C0042C09C /* Images.xcassets in Resources */,
-				3B45D4BD19BEDCBA00EFE2EA /* ChooseProcessView.xib in Resources */,
 				3BB1A16219C6C9A500E0CFA8 /* MJRefresh.bundle in Resources */,
 				029202FA19BB337C0042C09C /* InfoPlist.strings in Resources */,
 				0292030319BB337C0042C09C /* Main.storyboard in Resources */,
 				0292033E19BB52540042C09C /* CustomTabBarItem.xib in Resources */,
 				0292033C19BB49A30042C09C /* CustomTabBarView.xib in Resources */,
+				0232A72119CD672D0083ECBC /* WorkingListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +620,7 @@
 				0292033319BB37E50042C09C /* SettingViewController.m in Sources */,
 				3BB1A16719C6C9A500E0CFA8 /* UIScrollView+MJExtension.m in Sources */,
 				0231475E19BC91CB00C95DC0 /* PersonalCell.m in Sources */,
+				0232A72419CDB1BB0083ECBC /* WorkingListSearchViewController.m in Sources */,
 				023FCC1B19C9C4220089127C /* UIAlertView+ShowNotice.m in Sources */,
 				0292034119BB52630042C09C /* CustomTabBarItem.m in Sources */,
 				3BB1A16C19C6D8C700E0CFA8 /* WorkingListCollectionCell.m in Sources */,
@@ -688,8 +694,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jim Min (34THUY39J9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jim Min (34THUY39J9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: CHENG NAN (R79JFQ5VKW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CHENG NAN (R79JFQ5VKW)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -707,7 +713,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "4edcd595-fbb1-4f61-ac91-c4ae04cdf0b3";
+				PROVISIONING_PROFILE = "9876bbe5-09db-43d0-a7f6-480ee59e09f9";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -741,7 +747,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
-				PROVISIONING_PROFILE = "4edcd595-fbb1-4f61-ac91-c4ae04cdf0b3";
+				PROVISIONING_PROFILE = "9876bbe5-09db-43d0-a7f6-480ee59e09f9";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -753,13 +759,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jim Min (34THUY39J9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jim Min (34THUY39J9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: CHENG NAN (R79JFQ5VKW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CHENG NAN (R79JFQ5VKW)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hylink/hylink-Prefix.pch";
 				INFOPLIST_FILE = "hylink/hylink-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4edcd595-fbb1-4f61-ac91-c4ae04cdf0b3";
+				PROVISIONING_PROFILE = "9876bbe5-09db-43d0-a7f6-480ee59e09f9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -775,8 +782,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "hylink/hylink-Prefix.pch";
 				INFOPLIST_FILE = "hylink/hylink-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4edcd595-fbb1-4f61-ac91-c4ae04cdf0b3";
+				PROVISIONING_PROFILE = "9876bbe5-09db-43d0-a7f6-480ee59e09f9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

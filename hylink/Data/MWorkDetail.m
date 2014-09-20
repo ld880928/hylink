@@ -19,7 +19,7 @@
         NSMutableArray *formItems = [NSMutableArray array];
 
         NSArray *actionDatas = [data_ objectForKey:@"actions"];
-        //NSArray *commentDatas = [data_ objectForKey:@"comments"];
+        NSArray *commentDatas = [data_ objectForKey:@"comments"];
         NSArray *formItemDatas = [data_ objectForKey:@"formItems"];
 
         for (int i=0; i<actionDatas.count; i++) {
@@ -28,13 +28,11 @@
             [actions addObject:mWorkDetailAction];
         }
         
-        /*
         for (int i=0; i<commentDatas.count; i++) {
-            NSDictionary *action = [actionDatas objectAtIndex:i];
-            MWorkDetailAction *mWorkDetailAction = [[MWorkDetailAction alloc] initWithDictionary:action];
-            [actions addObject:mWorkDetailAction];
+            NSDictionary *comment = [commentDatas objectAtIndex:i];
+            MWorkDetailComment *mWorkDetailComment = [[MWorkDetailComment alloc] initWithDictionary:comment];
+            [comments addObject:mWorkDetailComment];
         }
-        */
         
         for (int i=0; i<formItemDatas.count; i++) {
             NSDictionary *formItem = [formItemDatas objectAtIndex:i];
