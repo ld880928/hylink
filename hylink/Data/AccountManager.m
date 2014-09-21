@@ -56,7 +56,15 @@
 
 - (BOOL)isLoginSuccess
 {
-    return [[Account_UserDefaults objectForKey:Account_isLoginSuccess] boolValue];
+    NSNumber *login = [Account_UserDefaults objectForKey:Account_isLoginSuccess];
+    
+    if (!login || !login.intValue) {
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
 }
 
 - (void)setUname:(NSString *)uname
@@ -86,6 +94,13 @@
 
 - (void)setIsLoginSuccess:(BOOL)isLoginSuccess
 {
-    [Account_UserDefaults setObject:[NSNumber numberWithBool:isLoginSuccess] forKey:Account_isLoginSuccess];
+    if (isLoginSuccess) {
+        [Account_UserDefaults setObject:@1 forKey:Account_isLoginSuccess];
+    }
+    else
+    {
+        [Account_UserDefaults setObject:@0 forKey:Account_isLoginSuccess];
+    }
+    
 }
 @end

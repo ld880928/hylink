@@ -34,6 +34,7 @@ typedef enum
 #import "CustomTabBarView.h"
 #import "HomeTabBarController.h"
 #import "ChooseProcessView.h"
+#import "LoginViewController.h"
 
 #import "MJRefresh.h"
 

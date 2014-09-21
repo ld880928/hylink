@@ -16,6 +16,17 @@
 
 @implementation LoginViewController
 
++ (void)logOut:(UIViewController *)controller_
+{
+    [[AccountManager manager] setIsLoginSuccess:NO];
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *navigationViewController = (UINavigationController *)[storyBoard instantiateViewControllerWithIdentifier:@"LoginNavigationViewController"];
+    [controller_ presentViewController:navigationViewController animated:YES completion:^{
+        
+    }];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -55,7 +66,7 @@
             [AccountManager manager].uid    =  [responseObject objectForKey:@"uid"];
             [AccountManager manager].orgid  =  [responseObject objectForKey:@"orgid"];
             [AccountManager manager].token  =  [responseObject objectForKey:@"token"];
-            [AccountManager manager].isLoginSuccess  =  YES;
+            [[AccountManager manager] setIsLoginSuccess:YES];
             
             [SVProgressHUD showSuccessWithStatus:@"登录成功"];
 

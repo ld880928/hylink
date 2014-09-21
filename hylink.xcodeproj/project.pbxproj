@@ -50,6 +50,7 @@
 		0292038919BB7BF50042C09C /* NSObject+PerformBlockAfterDelay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292035F19BB7BF50042C09C /* NSObject+PerformBlockAfterDelay.m */; };
 		0292039619BB7BF50042C09C /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292037619BB7BF50042C09C /* UIButton+Block.m */; };
 		0292039E19BB7F990042C09C /* UIViewController+WhiteTitle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0292039D19BB7F990042C09C /* UIViewController+WhiteTitle.m */; };
+		02A9242119CE777C00756CE5 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A9242019CE777C00756CE5 /* ChangePasswordViewController.m */; };
 		2DE7F5F24FF34BA6A97EFBAA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 029F5C42A21F49CD939E2051 /* libPods.a */; };
 		3B45D4B519BEA21900EFE2EA /* WorkingDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B45D4B419BEA21900EFE2EA /* WorkingDetailCell.m */; };
 		3B45D4B819BEA23900EFE2EA /* WorkingDetailHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B45D4B719BEA23900EFE2EA /* WorkingDetailHistoryCell.m */; };
@@ -156,6 +157,8 @@
 		0292039C19BB7F990042C09C /* UIViewController+WhiteTitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WhiteTitle.h"; sourceTree = "<group>"; };
 		0292039D19BB7F990042C09C /* UIViewController+WhiteTitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WhiteTitle.m"; sourceTree = "<group>"; };
 		029F5C42A21F49CD939E2051 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		02A9241F19CE777C00756CE5 /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
+		02A9242019CE777C00756CE5 /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
 		3B45D4B319BEA21900EFE2EA /* WorkingDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingDetailCell.h; sourceTree = "<group>"; };
 		3B45D4B419BEA21900EFE2EA /* WorkingDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingDetailCell.m; sourceTree = "<group>"; };
 		3B45D4B619BEA23900EFE2EA /* WorkingDetailHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingDetailHistoryCell.h; sourceTree = "<group>"; };
@@ -376,6 +379,8 @@
 				0231475819BC917D00C95DC0 /* PersonalCells */,
 				0292033119BB37E50042C09C /* SettingViewController.h */,
 				0292033219BB37E50042C09C /* SettingViewController.m */,
+				02A9241F19CE777C00756CE5 /* ChangePasswordViewController.h */,
+				02A9242019CE777C00756CE5 /* ChangePasswordViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -627,6 +632,7 @@
 				3B45D4BB19BEDC7800EFE2EA /* ChooseProcessView.m in Sources */,
 				0292033A19BB49900042C09C /* CustomTabBarView.m in Sources */,
 				3BF7F26E19CABA34002D0CCC /* DateManager.m in Sources */,
+				02A9242119CE777C00756CE5 /* ChangePasswordViewController.m in Sources */,
 				02364BE319BDDF4200083F37 /* WorkingDetailViewController.m in Sources */,
 				023FCC1E19C9C5E30089127C /* AccountManager.m in Sources */,
 			);
@@ -713,7 +719,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "9876bbe5-09db-43d0-a7f6-480ee59e09f9";
+				PROVISIONING_PROFILE = "9e33da14-1e2c-497f-93b3-5201fb350b8a";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -747,7 +753,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
-				PROVISIONING_PROFILE = "9876bbe5-09db-43d0-a7f6-480ee59e09f9";
+				PROVISIONING_PROFILE = "9e33da14-1e2c-497f-93b3-5201fb350b8a";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -766,7 +772,7 @@
 				INFOPLIST_FILE = "hylink/hylink-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9876bbe5-09db-43d0-a7f6-480ee59e09f9";
+				PROVISIONING_PROFILE = "9e33da14-1e2c-497f-93b3-5201fb350b8a";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -784,7 +790,7 @@
 				INFOPLIST_FILE = "hylink/hylink-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9876bbe5-09db-43d0-a7f6-480ee59e09f9";
+				PROVISIONING_PROFILE = "9e33da14-1e2c-497f-93b3-5201fb350b8a";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -44,10 +44,12 @@
     
     [self performBlock:^{
         
+        NSLog(@"%d",[[AccountManager manager] isLoginSuccess]);
+        
         //检查是否登录
         if(![[AccountManager manager] isLoginSuccess])
         {
-            [self performSegueWithIdentifier:@"HomeToLoginSegue" sender:self];
+            [LoginViewController logOut:self];
         }
         
     } afterDelay:.1f];

@@ -129,8 +129,8 @@ typedef enum {
             [logoutBtn setImage:[UIImage imageNamed:@"btn_logout"] forState:UIControlStateNormal];
             
             [logoutBtn handleControlEvent:UIControlEventTouchUpInside withBlock:^{
-                
-                //退出登录
+                            
+                [LoginViewController logOut:self];
                 
             }];
             
@@ -142,6 +142,19 @@ typedef enum {
 
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case SettingType_ChangePassword:
+            [self performSegueWithIdentifier:@"gotoChangePasswordSegue" sender:self];
+            break;
+            
+        default:
+            break;
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 /*
 #pragma mark - Navigation
