@@ -130,7 +130,7 @@ typedef enum {
             
             [logoutBtn handleControlEvent:UIControlEventTouchUpInside withBlock:^{
                             
-                [LoginViewController logOut:self];
+                [LoginViewController logOut];
                 
             }];
             

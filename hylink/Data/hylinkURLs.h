@@ -28,6 +28,11 @@ typedef enum
 #define URL_SUB_FORGET [URL_BASE stringByAppendingString:@"/rest/m/login/forget"]
 
 /*!
+ *  修改密码
+ */
+#define URL_SUB_Modify_Password [URL_BASE stringByAppendingString:@"/rest/m/login/modify"]
+
+/*!
  *  待办事项列表
  */
 #define URL_SUB_WORKING_LIST [URL_BASE stringByAppendingString:@"/rest/m/bpm/todotask/list"]
@@ -36,6 +41,7 @@ typedef enum
  *  待办事项明细
  */
 #define URL_SUB_WORKING_DETAIL [URL_BASE stringByAppendingString:@"/rest/m/bpm/todotask/detail"]
+
 
 
 #endif

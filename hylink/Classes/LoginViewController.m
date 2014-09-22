@@ -16,13 +16,14 @@
 
 @implementation LoginViewController
 
-+ (void)logOut:(UIViewController *)controller_
++ (void)logOut
 {
     [[AccountManager manager] setIsLoginSuccess:NO];
     
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UINavigationController *navigationViewController = (UINavigationController *)[storyBoard instantiateViewControllerWithIdentifier:@"LoginNavigationViewController"];
-    [controller_ presentViewController:navigationViewController animated:YES completion:^{
+    
+    [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:navigationViewController animated:YES completion:^{
         
     }];
 }

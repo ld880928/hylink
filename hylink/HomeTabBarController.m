@@ -49,7 +49,7 @@
         //检查是否登录
         if(![[AccountManager manager] isLoginSuccess])
         {
-            [LoginViewController logOut:self];
+            [LoginViewController logOut];
         }
         
     } afterDelay:.1f];

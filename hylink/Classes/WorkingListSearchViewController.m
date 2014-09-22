@@ -75,7 +75,7 @@
                                @"uid":[AccountManager manager].uid,
                                @"orgid":[AccountManager manager].orgid,
                                @"pagesize":@20,
-                               @"page":[NSNumber numberWithInt:safe_self.page + 1],
+                               @"page":[NSNumber numberWithLong:safe_self.page + 1],
                                @"type":searchString};
         
         [requestManager POST:URL_SUB_WORKING_LIST parameters:para success:^(AFHTTPRequestOperation *operation, id responseObject) {
