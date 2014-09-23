@@ -16,7 +16,7 @@ typedef enum
 }Request_Status;
 
 #define URL_BASE @"http://demo.infoship.cn/scms"
-//#define URL_BASE @"http://192.168.1.5:8080/scms"
+//#define URL_BASE @"http://192.168.1.5:8080/infoship"
 
 /*!
  *  登录接口
@@ -48,6 +48,20 @@ typedef enum
  */
 #define URL_SUB_WORKING_DETAIL [URL_BASE stringByAppendingString:@"/rest/m/bpm/todotask/detail"]
 
+/*!
+ *  已办事项条数
+ */
+#define URL_SUB_WORKED_TOTAL [URL_BASE stringByAppendingString:@"/rest/m/bpm/donetask/total"]
+
+/*!
+ *  已办事项列表
+ */
+#define URL_SUB_WORKED_LIST [URL_BASE stringByAppendingString:@"/rest/m/bpm/donetask/list"]
+
+/*!
+ *  已办事项明细
+ */
+#define URL_SUB_WORKED_DETAIL [URL_BASE stringByAppendingString:@"/rest/m/bpm/donetask/detail"]
 
 
 #endif

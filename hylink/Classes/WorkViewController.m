@@ -45,7 +45,24 @@
         [SVProgressHUD showErrorWithStatus:@"网络异常"];
     }];
     
-    self.labelWorkedCount.text = @"138";
+    //查询已办事项条数
+    AFHTTPRequestOperationManager *requestManager2 = [AFHTTPRequestOperationManager manager];
+    //参数
+    NSDictionary *para2 = @{@"token":[AccountManager manager].token,
+                           @"uid":[AccountManager manager].uid};
+    
+    [requestManager2 POST:URL_SUB_WORKED_TOTAL parameters:para2 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([[responseObject objectForKey:@"status"] intValue] == Request_Status_OK) {
+            self.labelWorkedCount.text = [NSString stringWithFormat:@"%@",[responseObject objectForKey:@"total"]];
+        }
+        else
+        {
+            [SVProgressHUD showErrorWithStatus:[responseObject objectForKey:@"message"]];
+            self.labelWorkingCount.text = @"0";
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+    }];
 }
 
 //待办事项列表
