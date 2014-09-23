@@ -9,11 +9,13 @@
 #import "WorkingDetailViewController.h"
 #import "WorkingDetailCell.h"
 #import "WorkingDetailHistoryCell.h"
+#import "WorkPopView.h"
 
 @interface WorkingDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *infoTableView;
 
 @property (nonatomic,strong)ChooseProcessView *chooseProcessView;
+@property (nonatomic,strong)WorkPopView *workPopViewHandle;
 
 @property (nonatomic,strong)MWorkDetail *mWorkDetail;
 @end
@@ -95,43 +97,65 @@
         }
         else
         {
+            if (self.workPopViewHandle) {
+                [self.workPopViewHandle hide];
+            }
             processBtn.transform = CGAffineTransformMakeRotation(M_PI);
             [self.chooseProcessView showInView:self.view];
         }
         
     }];
     
-    
     for (int i=0; i<actions.count; i++) {
         
         MWorkDetailAction *action = [actions objectAtIndex:i];
         if (!action.f_work_detail_action_disable) {
             
+            __unsafe_unretained WorkingDetailViewController *safe_self = self;
+            
             [self.chooseProcessView addItemWithType:action.f_work_detail_action_id showLabel:action.f_work_detail_action_label callBackBlock:^(id sender) {
                 
-                if([sender isEqualToString:@"agree"])
-                {
-                    NSLog(@"%@",sender);
-                    return;
-                }
+                [safe_self.chooseProcessView hide];
                 
-                if([sender isEqualToString:@"disagree"])
-                {
-                    NSLog(@"%@",sender);
-                    return;
-                }
+                safe_self.workPopViewHandle = [WorkPopView WorkPopViewWithType:sender];
                 
-                if([sender isEqualToString:@"askInitiator"])
-                {
-                    NSLog(@"%@",sender);
-                    return;
-                }
+                AFHTTPRequestOperationManager *requestManager = [AFHTTPRequestOperationManager manager];
                 
-                if([sender isEqualToString:@"askOther"])
-                {
-                    NSLog(@"%@",sender);
-                    return;
-                }
+                safe_self.workPopViewHandle.submitCallBackBlock = ^(id para_){
+                    
+                    [SVProgressHUD showWithStatus:@"正在提交"];
+                    
+                    NSDictionary *para = @{@"token":[AccountManager manager].token,
+                                           @"uid":[AccountManager manager].uid,
+                                           @"orgid":[AccountManager manager].orgid,
+                                           @"taskid":safe_self.mWork.f_work_taskid,
+                                           @"action":[para_ objectForKey:@"action"],
+                                           @"other":[para_ objectForKey:@"other"],
+                                           @"memo":[para_ objectForKey:@"memo"],
+                                           @"items":@[]};
+                    
+                    [requestManager POST:URL_SUB_WORKING_SUBMIT parameters:para success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                        
+                        if ([[responseObject objectForKey:@"status"] intValue] == Request_Status_OK) {
+                            [SVProgressHUD showSuccessWithStatus:@"提交成功"];
+                            [safe_self.workPopViewHandle hide];
+                            [safe_self.navigationController popViewControllerAnimated:YES];
+                            
+                        }
+                        else
+                        {
+                            [SVProgressHUD showErrorWithStatus:[responseObject objectForKey:@"message"]];
+                            
+                        }
+                        
+                        
+                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+                        
+                    }];
+                };
+                
+                [safe_self.workPopViewHandle showInView:safe_self.view];
                 
             }];
             

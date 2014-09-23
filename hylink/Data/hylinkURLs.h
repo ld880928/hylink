@@ -42,6 +42,10 @@ typedef enum
  */
 #define URL_SUB_WORKING_DETAIL [URL_BASE stringByAppendingString:@"/rest/m/bpm/todotask/detail"]
 
+/*!
+ *  待办处理
+ */
+#define URL_SUB_WORKING_SUBMIT [URL_BASE stringByAppendingString:@"/rest/m/bpm/todotask/commit"]
 
 
 #endif

@@ -90,6 +90,8 @@
 		02BCB8BB19D07B1F00DEBDE0 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 02BCB89219D07B1F00DEBDE0 /* README.md */; };
 		02BCB8BC19D07B1F00DEBDE0 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 02BCB89419D07B1F00DEBDE0 /* SVProgressHUD.bundle */; };
 		02BCB8BD19D07B1F00DEBDE0 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 02BCB89619D07B1F00DEBDE0 /* SVProgressHUD.m */; };
+		3B03F64C19D1516500B9185C /* WorkPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B03F64B19D1516500B9185C /* WorkPopView.m */; };
+		3B03F64E19D1517400B9185C /* WorkPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B03F64D19D1517400B9185C /* WorkPopView.xib */; };
 		3B45D4B519BEA21900EFE2EA /* WorkingDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B45D4B419BEA21900EFE2EA /* WorkingDetailCell.m */; };
 		3B45D4B819BEA23900EFE2EA /* WorkingDetailHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B45D4B719BEA23900EFE2EA /* WorkingDetailHistoryCell.m */; };
 		3B45D4BB19BEDC7800EFE2EA /* ChooseProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B45D4BA19BEDC7800EFE2EA /* ChooseProcessView.m */; };
@@ -270,6 +272,9 @@
 		02BCB89419D07B1F00DEBDE0 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		02BCB89519D07B1F00DEBDE0 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		02BCB89619D07B1F00DEBDE0 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		3B03F64A19D1516500B9185C /* WorkPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkPopView.h; sourceTree = "<group>"; };
+		3B03F64B19D1516500B9185C /* WorkPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkPopView.m; sourceTree = "<group>"; };
+		3B03F64D19D1517400B9185C /* WorkPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkPopView.xib; sourceTree = "<group>"; };
 		3B45D4B319BEA21900EFE2EA /* WorkingDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingDetailCell.h; sourceTree = "<group>"; };
 		3B45D4B419BEA21900EFE2EA /* WorkingDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkingDetailCell.m; sourceTree = "<group>"; };
 		3B45D4B619BEA23900EFE2EA /* WorkingDetailHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkingDetailHistoryCell.h; sourceTree = "<group>"; };
@@ -505,6 +510,9 @@
 				3B45D4BA19BEDC7800EFE2EA /* ChooseProcessView.m */,
 				02110A0D19BF457E00DA33E2 /* CustomSegmentedControl.h */,
 				02110A0E19BF457E00DA33E2 /* CustomSegmentedControl.m */,
+				3B03F64A19D1516500B9185C /* WorkPopView.h */,
+				3B03F64B19D1516500B9185C /* WorkPopView.m */,
+				3B03F64D19D1517400B9185C /* WorkPopView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -769,6 +777,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0292030B19BB337C0042C09C /* Images.xcassets in Resources */,
+				3B03F64E19D1517400B9185C /* WorkPopView.xib in Resources */,
 				3BB1A16219C6C9A500E0CFA8 /* MJRefresh.bundle in Resources */,
 				02BCB8A019D07B1F00DEBDE0 /* LICENSE in Resources */,
 				029202FA19BB337C0042C09C /* InfoPlist.strings in Resources */,
@@ -866,6 +875,7 @@
 				023FCC1B19C9C4220089127C /* UIAlertView+ShowNotice.m in Sources */,
 				02BCB8B419D07B1F00DEBDE0 /* UIButton+WebCache.m in Sources */,
 				0292034119BB52630042C09C /* CustomTabBarItem.m in Sources */,
+				3B03F64C19D1516500B9185C /* WorkPopView.m in Sources */,
 				3BB1A16C19C6D8C700E0CFA8 /* WorkingListCollectionCell.m in Sources */,
 				3B45D4BB19BEDC7800EFE2EA /* ChooseProcessView.m in Sources */,
 				02BCB8AF19D07B1F00DEBDE0 /* SDWebImageDecoder.m in Sources */,
