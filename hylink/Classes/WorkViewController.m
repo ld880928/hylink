@@ -26,7 +26,25 @@
     [self setTitleWhite];
     // Do any additional setup after loading the view.
     
-    self.labelWorkingCount.text = @"20";
+    //查询待办事项条数
+    AFHTTPRequestOperationManager *requestManager = [AFHTTPRequestOperationManager manager];
+    //参数
+    NSDictionary *para = @{@"token":[AccountManager manager].token,
+                           @"uid":[AccountManager manager].uid};
+    
+    [requestManager POST:URL_SUB_WORKING_TOTAL parameters:para success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([[responseObject objectForKey:@"status"] intValue] == Request_Status_OK) {
+            self.labelWorkingCount.text = [NSString stringWithFormat:@"%@",[responseObject objectForKey:@"total"]];
+        }
+        else
+        {
+            [SVProgressHUD showErrorWithStatus:[responseObject objectForKey:@"message"]];
+            self.labelWorkingCount.text = @"0";
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络异常"];
+    }];
+    
     self.labelWorkedCount.text = @"138";
 }
 
